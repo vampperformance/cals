@@ -1,0 +1,30 @@
+﻿<?xml version="1.0"?>
+<Config Version="1.0">
+	<Info Button="next">
+		<Text Id="2075">Stay off the brake pedal</Text>
+		<Text Id="1978">Place the vehicle on a flat level surface and remove all excess weight.</Text>
+		<Text Id="2076">Align the front wheels straight and center the steering wheel</Text>
+	</Info>
+	<Action Id="3">
+		<Text Id="334">Check Ignition is on and press Next!</Text>
+	</Action>
+	<Action Id="1">
+		<Text Id="198">Please, wait...Establishing Vehicle Communication.</Text>
+	</Action>
+	<Action Id="2020">
+		<Text Id="335">Checking Vehicle speed is 0</Text>
+	</Action>
+	<Action Id="2021">
+		<Text Id="822">Checking Brake Not Applied</Text>
+	</Action>
+	<Info Button="next">
+		<Text Id="1771">Park the vehicle on a flat level surface</Text>
+		<Text Id="3279">Please release the Park Brake</Text>
+	</Info>
+	<Action Id="2025">
+		<Text Id="292">Electric Park Brake Calibration</Text>
+	</Action>
+	<Action Id="2">
+		<Text Id="339">Stopping Communication</Text>
+	</Action>
+</Config>

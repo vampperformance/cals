@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigurationModule ECU-CONFIG-SCHEMA-VERSION="01.02.01" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Header>
+    <EcuName>EPSdp_Electric_Power_Steering_dual_pinion</EcuName>
+    <DiagnosticAddress>31</DiagnosticAddress>
+    <PartNumber>015CDE78</PartNumber>
+    <AlphaCode>4141</AlphaCode>
+    <useSecurityAccess>true</useSecurityAccess>
+    <SecurityAlgoTableNo>00</SecurityAlgoTableNo>
+    <SecurityAlgoNo>E5</SecurityAlgoNo>
+    <Protocol>
+      <ApplicationLayer>GMW3110</ApplicationLayer>
+      <PhysicalLayer>
+        <PhysicalLayerSpec>GMW3122</PhysicalLayerSpec>
+        <Pin PhysicalLayerSignalName="High Speed H(+)" PinNumber="6" />
+        <Pin PhysicalLayerSignalName="High Speed L(-)" PinNumber="14" />
+      </PhysicalLayer>
+      <Description>XML for REPS on GMT17X</Description>
+    </Protocol>
+    <ConfigurationCompatibilityIdentifier>0001</ConfigurationCompatibilityIdentifier>
+  </Header>
+  <DidList>
+    <DidItem>
+      <ID>DID005b</ID>
+      <DidNo>005B</DidNo>
+      <DidDataIndicator>0000</DidDataIndicator>
+      <Name>_DID_5B_Center_Detection</Name>
+      <Description>This function is for re-initializing the internal SAS via straight ahead detection in case of a battery disconnection.                                        For this purpose the vehicle wheel speeds from CAN ID                     0x348 &amp;                     0x34A from EBCM are used.                     If this function is activated, the CAN messages are checked and the DTC U0121 / 0x00 is set in case                    of a 'Lost Communication with EBCM'.</Description>
+      <DidLength>1</DidLength>
+      <DefaultValue>01</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID0090</ID>
+      <DidNo>0090</DidNo>
+      <DidDataIndicator>0090</DidDataIndicator>
+      <Name>_DID_90_Vehicle_Identification_Number</Name>
+      <Description>This DID contains the Vehicle Identification Number. The data content shall be specified by the vehicle manufacturer.                      If the VIN has not yet been programmed into the ECU's permanent memory, those locations shall be either '$00' or '$FF'</Description>
+      <DidLength>17</DidLength>
+      <DefaultValue>0000000000000000000000000000000000</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID0098</ID>
+      <DidNo>0098</DidNo>
+      <DidDataIndicator>0098</DidDataIndicator>
+      <Name>_DID_98_Repair_Shop_Code_Or_Tester_Serial_Number</Name>
+      <Description>This DID contains the RepairShopCodeOrTesterSerialNumber which identifies the dealerâ€™s code or the testerâ€™s serial number. This ASCII string is programmed into the ECUâ€™s memory during the last programming session (SPS) at the dealer site.</Description>
+      <DidLength>10</DidLength>
+      <DefaultValue>00000000000000000000</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID0099</ID>
+      <DidNo>0099</DidNo>
+      <DidDataIndicator>0099</DidDataIndicator>
+      <Name>_DID_99_Programming_Date</Name>
+      <Description>This DID contains the ProgrammingDate of the last programming event (SPS) at the dealer site.  This BCD value was programmed into the ECUâ€™s memory during the last programming session (SPS).</Description>
+      <DidLength>4</DidLength>
+      <DefaultValue>07D00116</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID009c</ID>
+      <DidNo>009C</DidNo>
+      <DidDataIndicator>009C</DidDataIndicator>
+      <Name>_DID_9C_XML_Data_File_Part_Number</Name>
+      <Description>DIDs $90, $9C, and $9D shall be incorporated into the XML file in the write section with either no DIDWriteScope attribute or the value of the attribute DIDWriteScope set to â€œAllâ€ or â€œManufacturing Onlyâ€. The write order for DIDs shall be as follows:                    1.	All ECU specific configuration DIDs (except those below).                    2.	The XML Part number ($9C)                    3.	The XML Part Number Suffix ($9D)                    4.	The VIN ($90)                    5.	The (MEC) Manufacturers Enable Counter ($A0) - only allowed if service part has a MEC greater than zero and with write scope of â€œService Onlyâ€.                                        The values for these DIDs must be retrieved from the downloading tool and the indication to the tool is done via the â€œDIDDataIndicator elementâ€ within the â€œDIDList sectionâ€.                                        The default value of the DID will be taken from the XML file header element PartNumber.	                                        If XML programming is supported, it shall have the XML File Part Number initialized to an invalid part number, FFFFFFFF or 00000000, at the ECU manufacturing facility.</Description>
+      <DidLength>4</DidLength>
+      <DefaultValue>00000000</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID009d</ID>
+      <DidNo>009D</DidNo>
+      <DidDataIndicator>009D</DidDataIndicator>
+      <Name>_DID_9D_XML_Data_File_Alpha_Code</Name>
+      <Description>This DID contains the 2 character representation of the Alpha Code (or Design Level suffix) associated with the XMLDataFilePartNumber (stored in dataIdentifier $9C)</Description>
+      <DidLength>2</DidLength>
+      <DefaultValue>0000</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+  </DidList>
+  <ReadSection>
+  </ReadSection>
+  <ModificationSection>
+    <ModificationItem IDREF="DID005b">
+      <Parameter>
+        <ParameterName>_DID_5B_Center_Detection_CD</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>8</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(M:1LF26) | (M:1LH26) | (M:1LJ26) | (M:TLF26) | (M:TLH26) | (M:TLJ26)">
+            <Product>
+              <ModelDesignatorRef IDREF="MD1LF26" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <ModelDesignatorRef IDREF="MD1LH26" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <ModelDesignatorRef IDREF="MD1LJ26" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <ModelDesignatorRef IDREF="MDTLF26" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <ModelDesignatorRef IDREF="MDTLH26" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <ModelDesignatorRef IDREF="MDTLJ26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Deactivated" Value="00" />
+          <Interpretation Text="Activated" Value="01" />
+        </ServiceSection>
+      </Parameter>
+    </ModificationItem>
+  </ModificationSection>
+  <WriteSection>
+    <WriteItem IDREF="DID009d" DelayForMS="0" />
+    <WriteItem IDREF="DID009c" DelayForMS="0" />
+    <WriteItem IDREF="DID0098" DelayForMS="0" />
+    <WriteItem IDREF="DID0099" DelayForMS="0" />
+    <WriteItem IDREF="DID0090" DelayForMS="0" />
+    <WriteItem IDREF="DID005b" DelayForMS="0" />
+  </WriteSection>
+  <RpoList>
+  </RpoList>
+  <ModelDesignatorList>
+    <ModelDesignatorItem>
+      <ModelDesignatorID>MD1LF26</ModelDesignatorID>
+      <ModelDesignator>1LF26</ModelDesignator>
+      <Description>1LF26</Description>
+    </ModelDesignatorItem>
+    <ModelDesignatorItem>
+      <ModelDesignatorID>MD1LH26</ModelDesignatorID>
+      <ModelDesignator>1LH26</ModelDesignator>
+      <Description>1LH26</Description>
+    </ModelDesignatorItem>
+    <ModelDesignatorItem>
+      <ModelDesignatorID>MD1LJ26</ModelDesignatorID>
+      <ModelDesignator>1LJ26</ModelDesignator>
+      <Description>1LJ26</Description>
+    </ModelDesignatorItem>
+    <ModelDesignatorItem>
+      <ModelDesignatorID>MDTLF26</ModelDesignatorID>
+      <ModelDesignator>TLF26</ModelDesignator>
+      <Description>TLF26</Description>
+    </ModelDesignatorItem>
+    <ModelDesignatorItem>
+      <ModelDesignatorID>MDTLH26</ModelDesignatorID>
+      <ModelDesignator>TLH26</ModelDesignator>
+      <Description>TLH26</Description>
+    </ModelDesignatorItem>
+    <ModelDesignatorItem>
+      <ModelDesignatorID>MDTLJ26</ModelDesignatorID>
+      <ModelDesignator>TLJ26</ModelDesignator>
+      <Description>TLJ26</Description>
+    </ModelDesignatorItem>
+  </ModelDesignatorList>
+  <RevisionLog>
+    <RevisionLogEntry>
+      <RevisionVersion>01.04.01</RevisionVersion>
+      <RevisionDate>2011-08-30</RevisionDate>
+      <RevisionDescription>DID $AC: Center Detection activated for all vehicles by default value 0x01.</RevisionDescription>
+      <RevisionAuthor>Peter Kleinhans</RevisionAuthor>
+    </RevisionLogEntry>
+  </RevisionLog>
+</ConfigurationModule>

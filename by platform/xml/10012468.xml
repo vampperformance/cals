@@ -1,0 +1,9 @@
+﻿<?xml version="1.0"?>
+<Config Version="1.0">
+	<Action Id="1">
+		<Text Id="198">Please, wait...Establishing Vehicle Communication.</Text>
+	</Action>
+	<Action Id="8900">
+		<Text Id="4174">SDM PreCheck</Text>
+	</Action>
+</Config>

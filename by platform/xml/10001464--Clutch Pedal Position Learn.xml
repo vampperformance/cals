@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<Config Version="1.1">
+	<Action Id="1">
+		<Text Id="406">Clutch Pedal Position Learn</Text>
+	</Action>
+	<Action Id="2">
+		<Text Id="434">Crankshaft Position Variation Learn</Text>
+	</Action>
+	<Action Id="3">
+		<Text Id="84">Engine Oil Life Reprogramming</Text>
+	</Action>
+</Config>

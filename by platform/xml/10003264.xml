@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<Config Version="1.0">
+	<Action Id="3">
+		<Text Id="1978">Place the vehicle on a flat level surface and remove all excess weight.</Text>
+	</Action>
+	<Action Id="3">
+		<Text Id="334">Check Ignition is on and press Next!</Text>
+	</Action>
+	<Action Id="8003">
+		<Text Id="431">Performing Yaw Rate Sensor Learn</Text>
+	</Action>
+</Config>

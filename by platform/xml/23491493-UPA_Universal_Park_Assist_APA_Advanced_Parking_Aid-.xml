@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigurationModule ECU-CONFIG-SCHEMA-VERSION="01.02.02" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Header>
+    <EcuName>UPA_Universal_Park_Assist_APA_Advanced_Parking_Aid</EcuName>
+    <DiagnosticAddress>BB</DiagnosticAddress>
+    <PartNumber>016673A5</PartNumber>
+    <AlphaCode>4141</AlphaCode>
+    <useSecurityAccess>false</useSecurityAccess>
+    <SecurityAlgoTableNo>00</SecurityAlgoTableNo>
+    <SecurityAlgoNo>00</SecurityAlgoNo>
+    <Protocol>
+      <ApplicationLayer>GMW3110</ApplicationLayer>
+      <PhysicalLayer>
+        <PhysicalLayerSpec>GMW3089</PhysicalLayerSpec>
+        <Pin PhysicalLayerSignalName="Low Speed Single Wire CAN" PinNumber="1" />
+      </PhysicalLayer>
+      <Description>GMLAN</Description>
+    </Protocol>
+    <ConfigurationCompatibilityIdentifier>0007</ConfigurationCompatibilityIdentifier>
+  </Header>
+  <DidList>
+    <DidItem>
+      <ID>DID0090</ID>
+      <DidNo>0090</DidNo>
+      <DidDataIndicator>0090</DidDataIndicator>
+      <Name>Vehicle_Identification_Number</Name>
+      <Description>This DID contains the Vehicle Identification Number.  The data content shall be specified by the vehicle manufacturer.  If the VIN has not yet been programmed into the ECU's permanent memory, those locations shall be either '$00' or '$FF'.  All 17 digits must be programmed in order for the ECU to use this DID.  If the ECU does not store all 17 digits, then the ECU shall use an application specific DID to store the VIN digits.                                        Some ECUs may restrict the ability to write to this DID under certain operating conditions ( e.g. based on security status).  All write restrictions placed on this DID shall be agreed upon by the DRE, GM service, and GM manufacturing representatives.</Description>
+      <DidLength>17</DidLength>
+      <DefaultValue>0000000000000000000000000000000000</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID0097</ID>
+      <DidNo>0097</DidNo>
+      <DidDataIndicator>0000</DidDataIndicator>
+      <Name>System_Name_Or_Engine_Type</Name>
+      <Description>This DID contains the System Name Or Engine Type which identifies the electronic system name (e.g. Automatic Transmission with 2.0 L engine: GS820 X20XEV) or engine type (X30XE) installed.  The data shall always be of type ASCII.  The length is variable (depends on length of string) but shall not exceed 20 characters.</Description>
+      <DidLength>6</DidLength>
+      <DefaultValue>525041204156</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID0098</ID>
+      <DidNo>0098</DidNo>
+      <DidDataIndicator>0098</DidDataIndicator>
+      <Name>Repair_Shop_Code_Or_Tester_Serial_Number</Name>
+      <Description>This DID contains the Repair Shop Code Or Tester Serial Number which identifies the dealerâ€™s code or the testerâ€™s serial number. This ASCII string is programmed into the ECUâ€™s memory via the Utility File during the last programming session (SPS) at the dealer site.</Description>
+      <DidLength>10</DidLength>
+      <DefaultValue>00000000000000000000</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID0099</ID>
+      <DidNo>0099</DidNo>
+      <DidDataIndicator>0099</DidDataIndicator>
+      <Name>Programming_Date</Name>
+      <Description>This DID contains the Programming Date of the last programming event (SPS) at the dealer site.  This BCD value is programmed into the ECUâ€™s memory via the Utility File during the last programming session (SPS).                                        Example: January 22, 2000 would be encoded as $20 $00 $01 $22.</Description>
+      <DidLength>4</DidLength>
+      <DefaultValue>00000000</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID009c</ID>
+      <DidNo>009C</DidNo>
+      <DidDataIndicator>009C</DidDataIndicator>
+      <Name>XML_Data_File_Part_Number</Name>
+      <Description>This DID contains  the XML Data File Part Number, a 4 byte USN representation of the 8 digit GM part number assigned to the released XML data file that is used to configure an ECU.                    If an Alpha Code is used, then the Alpha Code associated with this part number shall be stored in DID $9D.                    * See Note 1 at the beginning of this section.</Description>
+      <DidLength>4</DidLength>
+      <DefaultValue>00000000</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID009d</ID>
+      <DidNo>009D</DidNo>
+      <DidDataIndicator>009D</DidDataIndicator>
+      <Name>XML_Data_File_Part_Number_Alpha_Code</Name>
+      <Description>This DID contains  the XML Data File Part Number Alpha Code, a  2 character ASCII representation of the Alpha Code (or Design Level Suffix) for the corresponding XML Data File Part Number.  This DID corresponds with DID $9C.</Description>
+      <DidLength>2</DidLength>
+      <DefaultValue>0000</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID00a1</ID>
+      <DidNo>00A1</DidNo>
+      <DidDataIndicator>0000</DidDataIndicator>
+      <Name>ECU_Configuration_or_Customization_Data_1</Name>
+      <Description>This DID contains user defined configuration data.</Description>
+      <DidLength>2</DidLength>
+      <DefaultValue>000F</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+  </DidList>
+  <ReadSection>
+  </ReadSection>
+  <ModificationSection>
+    <ModificationItem IDREF="DID0097">
+      <Parameter ParamDefaultValue="52504120">
+        <ParameterName>System_Type</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>32</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="52504120" AutoGenExpression="(UD7)">
+            <Product>
+              <RpoCodeRef IDREF="OCUD7" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="46525041" AutoGenExpression="(UD5)">
+            <Product>
+              <RpoCodeRef IDREF="OCUD5" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="RPA" Value="52504120" />
+          <Interpretation Text="FRPA" Value="46525041" />
+          <Interpretation Text="Default" Value="20202020" />
+          <Interpretation Text="APA2" Value="41504120" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="4156">
+        <ParameterName>HMI_Type</ParameterName>
+        <StartByte>4</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>16</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+    </ModificationItem>
+    <ModificationItem IDREF="DID00a1">
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>STEERING_WHEEL_LOCATION</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="00" AutoGenExpression="(LHD) | (LHD)">
+            <Product>
+              <RpoCodeRef IDREF="OCLHD" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <RpoCodeRef IDREF="OCLHD" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="01" AutoGenExpression="(RHD) | (RHD)">
+            <Product>
+              <RpoCodeRef IDREF="OCRHD" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <RpoCodeRef IDREF="OCRHD" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Left" Value="00" />
+          <Interpretation Text="Right" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>TRANSMISSION_TYPE</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(MW7 &amp; MYC &amp; MYD)">
+            <Product>
+              <RpoCodeRef IDREF="OCMW7" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMYC" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMYD" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="00" AutoGenExpression="(MQ7 &amp; MXW)">
+            <Product>
+              <RpoCodeRef IDREF="OCMQ7" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMXW" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Manual" Value="00" />
+          <Interpretation Text="Automatic" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>PA_SYSTEM_TYPE</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="00" AutoGenExpression="(UD7) | (UD7)">
+            <Product>
+              <RpoCodeRef IDREF="OCUD7" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <RpoCodeRef IDREF="OCUD7" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="01" AutoGenExpression="(UD5) | (UD5)">
+            <Product>
+              <RpoCodeRef IDREF="OCUD5" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <RpoCodeRef IDREF="OCUD5" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Rear" Value="00" />
+          <Interpretation Text="Front &amp; Rear" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="03">
+        <ParameterName>UPA_ACTIVATION</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>3</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="03" AutoGenExpression="(!UVZ &amp; Z82)">
+            <Product>
+              <RpoCodeRef IDREF="OCUVZ" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCZ82" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="01" AutoGenExpression="(!UVZ &amp; !Z82)">
+            <Product>
+              <RpoCodeRef IDREF="OCUVZ" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCZ82" hasToBeAvailable="false" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="04" AutoGenExpression="(UVZ)">
+            <Product>
+              <RpoCodeRef IDREF="OCUVZ" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="UPA Always Enabled" Value="00" />
+          <Interpretation Text="Physical Enable/Disable Switch" Value="01" />
+          <Interpretation Text="Enable/Disable via Menu" Value="02" />
+          <Interpretation Text="Both Physical Switch and Vehicle Menu" Value="03" />
+          <Interpretation Text="ESS Controlled Customization Only" Value="04" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>TRAILER_HITCH_COMPENSATION</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="False" Value="00" />
+          <Interpretation Text="True" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>UPA_STRATEGY</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Automatic" Value="00" />
+          <Interpretation Text="Semiautomatic" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>DRIVEN_WHEELS</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Front" Value="00" />
+          <Interpretation Text="Rear, 4x4, or All Wheel Drive" Value="01" />
+        </ServiceSection>
+      </Parameter>
+    </ModificationItem>
+  </ModificationSection>
+  <WriteSection>
+    <WriteItem IDREF="DID0097" DelayForMS="0" />
+    <WriteItem IDREF="DID0090" DelayForMS="0" />
+    <WriteItem IDREF="DID0098" DelayForMS="0" />
+    <WriteItem IDREF="DID0099" DelayForMS="0" />
+    <WriteItem IDREF="DID009c" DelayForMS="0" />
+    <WriteItem IDREF="DID009d" DelayForMS="0" />
+    <WriteItem IDREF="DID00a1" DelayForMS="0" />
+  </WriteSection>
+  <RpoList>
+    <RpoCodeItem>
+      <OptionCodeID>OCLHD</OptionCodeID>
+      <OptionCode>LHD</OptionCode>
+      <Description>VEHICLE DRIVE LEFTHAND DRIVE</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCMQ7</OptionCodeID>
+      <OptionCode>MQ7</OptionCode>
+      <Description>TRANSMISSION MAN 5 SPD, TREMEC, 109MM, 6.16 1ST, 3.11 2ND, 1.71 3RD, 1.00 4TH, 0.76 5TH (TR4050)</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCMW7</OptionCodeID>
+      <OptionCode>MW7</OptionCode>
+      <Description>TRANSMISSION AUTO 6 SPD, ALLISON, LCT 1000, 3.10 1ST, .71 5TH .62 6TH, O/D, CONV CLUTCH</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCMXW</OptionCodeID>
+      <OptionCode>MXW</OptionCode>
+      <Description>TRANSMISSION MAN 5 SPD, 4.227 1ST, 2.375 2ND, 1.470 3RD, 1.000 4TH, 0.808TH, TREMEC, GEN 1</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCMYC</OptionCodeID>
+      <OptionCode>MYC</OptionCode>
+      <Description> TRANSMISSION - AUTO 6 SPD, HMD, 6L80</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCMYD</OptionCodeID>
+      <OptionCode>MYD</OptionCode>
+      <Description>TRANSMISSION AUTO 6 SPD, HMD, 6L90</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCRHD</OptionCodeID>
+      <OptionCode>RHD</OptionCode>
+      <Description>VEHICLE DRIVE RIGHTHAND DRIVE</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCUD5</OptionCodeID>
+      <OptionCode>UD5</OptionCode>
+      <Description>PARK ASSIST - FRONT AND REAR</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCUD7</OptionCodeID>
+      <OptionCode>UD7</OptionCode>
+      <Description>PARK ASSIST - REAR</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCUVZ</OptionCodeID>
+      <OptionCode>UVZ</OptionCode>
+      <Description>SENSOR-COLLISION AVOIDANCE &amp; MITIGATION, VEHICLE REVERSE MOVEMENT</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCZ82</OptionCodeID>
+      <OptionCode>Z82</OptionCode>
+      <Description>TRAILER PROVISIONS SPECIAL EQUIPMENT, H.D.</Description>
+    </RpoCodeItem>
+  </RpoList>
+  <ModelDesignatorList>
+  </ModelDesignatorList>
+  <RevisionLog>
+    <RevisionLogEntry>
+      <RevisionVersion>01.02.00</RevisionVersion>
+      <RevisionDate>2014-03-05</RevisionDate>
+      <RevisionDescription>1.  Changed DID $A1 configuration data.
+2.  Updated DID $97 with correct system and HMI type</RevisionDescription>
+      <RevisionAuthor>Tim Arnold</RevisionAuthor>
+    </RevisionLogEntry>
+  </RevisionLog>
+</ConfigurationModule>

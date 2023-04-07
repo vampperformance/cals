@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<Config Version="1.0">
+	<Text Id="1316">Clear DTCs</Text>
+	<Action Id="3">
+		<Text Id="334">Check Ignition is on and press Next!</Text>
+	</Action>
+	<Action Id="1">
+		<Text Id="198">Please, wait...Establishing Vehicle Communication.</Text>
+	</Action>
+	<Action Id="10">
+		<Text Id="1316">Clear DTCs</Text>
+	</Action>
+	<Action Id="2">
+		<Text Id="339">Stopping Communication</Text>
+	</Action>
+</Config>

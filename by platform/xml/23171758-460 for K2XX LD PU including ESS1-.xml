@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigurationModule ECU-CONFIG-SCHEMA-VERSION="01.02.02" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Header>
+    <EcuName>460 for K2XX LD PU including ESS1</EcuName>
+    <DiagnosticAddress>28</DiagnosticAddress>
+    <PartNumber>016192AE</PartNumber>
+    <AlphaCode>4541</AlphaCode>
+    <useSecurityAccess>true</useSecurityAccess>
+    <SecurityAlgoTableNo>00</SecurityAlgoTableNo>
+    <SecurityAlgoNo>DF</SecurityAlgoNo>
+    <Protocol>
+      <ApplicationLayer>GMW3110</ApplicationLayer>
+      <PhysicalLayer>
+        <PhysicalLayerSpec>GMW3122</PhysicalLayerSpec>
+        <Pin PhysicalLayerSignalName="CAN HI" PinNumber="12" />
+        <Pin PhysicalLayerSignalName="CAN LO" PinNumber="13" />
+      </PhysicalLayer>
+      <Description>Chassis Expansion</Description>
+    </Protocol>
+    <ConfigurationCompatibilityIdentifier>0104</ConfigurationCompatibilityIdentifier>
+  </Header>
+  <DidList>
+    <DidItem>
+      <ID>DID0090</ID>
+      <DidNo>0090</DidNo>
+      <DidDataIndicator>0090</DidDataIndicator>
+      <Name>VIN</Name>
+      <Description>VIN</Description>
+      <DidLength>17</DidLength>
+      <DefaultValue>0000000000000000000000000000000000</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID009c</ID>
+      <DidNo>009C</DidNo>
+      <DidDataIndicator>009C</DidDataIndicator>
+      <Name>XML PN DID</Name>
+      <Description>XML PN</Description>
+      <DidLength>4</DidLength>
+      <DefaultValue>00000000</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID009d</ID>
+      <DidNo>009D</DidNo>
+      <DidDataIndicator>009D</DidDataIndicator>
+      <Name>XML PN DLS DID</Name>
+      <Description>XML DLS</Description>
+      <DidLength>2</DidLength>
+      <DefaultValue>0000</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID00a1</ID>
+      <DidNo>00A1</DidNo>
+      <DidDataIndicator>0000</DidDataIndicator>
+      <Name>A1 DID</Name>
+      <Description>Optional Equip - A1 DID Data</Description>
+      <DidLength>5</DidLength>
+      <DefaultValue>6364010726</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID00a2</ID>
+      <DidNo>00A2</DidNo>
+      <DidDataIndicator>0000</DidDataIndicator>
+      <Name>A2 DID</Name>
+      <Description>Vehicle Config - A2 DID</Description>
+      <DidLength>5</DidLength>
+      <DefaultValue>804931268A</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+  </DidList>
+  <ReadSection>
+    <ReadItem IDREF="DID00a1" />
+    <ReadItem IDREF="DID00a2" />
+  </ReadSection>
+  <ModificationSection>
+    <ModificationItem IDREF="DID00a1">
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Reserved</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>Hydraulic Brake Assist -fade</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Hydraulic Brake Assist -iba</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Hydraulic Brake Assist -rbb</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Hydraulic Brake Assist -prefill</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(Y65)">
+            <Product>
+              <RpoCodeRef IDREF="OCY65" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>HBB(Low vaccuum boost) / LHVBA</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>Hydraulic Brake Boost - failed (HBCompensation)</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Check Bit 15</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Hill Descent Control</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(JHD)">
+            <Product>
+              <RpoCodeRef IDREF="OCJHD" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>HDC Export Speed</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(JHD &amp; MAA) | (JHD &amp; MAM) | (JHD &amp; MAY) | (JHD &amp; MAF)">
+            <Product>
+              <RpoCodeRef IDREF="OCJHD" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMAA" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <RpoCodeRef IDREF="OCJHD" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMAM" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <RpoCodeRef IDREF="OCJHD" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMAY" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <RpoCodeRef IDREF="OCJHD" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMAF" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>Engine Drag Torque Reduction</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Electronic Locking Slip Differential</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Traction Control Shift Control</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>Enhanced Off Road</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>Low Speed Pinion Control</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Check Bit 23</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>Hill Start Assist</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Reserved</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Start Stop Assist</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Reserved</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Electric Park Brake</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Check Bit 31</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>Brake Hydraulic Monitor</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>Proactive Rollover Control</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>Trailer Sway Assist</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Integrated Trailer Brake Controller</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(JL1)">
+            <Product>
+              <RpoCodeRef IDREF="OCJL1" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Steering Torque Compensation</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Reserved</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Brake Disc Cleaning</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Check Bit 39</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="26">
+        <ParameterName>Version ID</ParameterName>
+        <StartByte>4</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>8</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>Hydraulic Brake Assist -panic</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Reserved</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+    </ModificationItem>
+    <ModificationItem IDREF="DID00a2">
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>Transfer Case Type</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>3</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="02" AutoGenExpression="(NQG)">
+            <Product>
+              <RpoCodeRef IDREF="OCNQG" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="04" AutoGenExpression="(NQH)">
+            <Product>
+              <RpoCodeRef IDREF="OCNQH" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+      </Parameter>
+      <Parameter ParamDefaultValue="02">
+        <ParameterName>Transmission Control Module</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>2</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(MXW)">
+            <Product>
+              <RpoCodeRef IDREF="OCMXW" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Manual (MXW)" Value="01" />
+          <Interpretation Text="Automatic (MYC)" Value="02" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Front Camera Module</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(Y65)">
+            <Product>
+              <RpoCodeRef IDREF="OCY65" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Crash Preparation System</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Radar Feature Bundle</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Rear Virtual Bumper</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Low Speed Collision Mitigation System (future)</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Reserved</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Reserved</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>Check Bit 47</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="00" AutoGenExpression="(Y65)">
+            <Product>
+              <RpoCodeRef IDREF="OCY65" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>WSS Legislated Diag Status</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>On Star Present</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(UE1)">
+            <Product>
+              <RpoCodeRef IDREF="OCUE1" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Check Bit 55</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Motorized Seat Belt</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>Driving Mode Control</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Reserved</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Real Time Damping (SARC included - future)</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>Performance Mode Selection Limited By Speed</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>Adaptive Cruise Control</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>2</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Check Bit 63</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="02">
+        <ParameterName>Directional WSS Combination</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>2</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>Direct Tire Pressure Monitoring</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>2</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="02" AutoGenExpression="(UJM)">
+            <Product>
+              <RpoCodeRef IDREF="OCUJM" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="4 Wheel DTPM" Value="02" />
+          <Interpretation Text="No DTPM" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="02">
+        <ParameterName>Vacuum Pressure Input</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>2</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Vacuum Pump Control</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Check Bit 71</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="8A">
+        <ParameterName>Version ID</ParameterName>
+        <StartByte>4</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>8</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+    </ModificationItem>
+  </ModificationSection>
+  <WriteSection>
+    <WriteItem IDREF="DID00a1" DelayForMS="0" DidWriteScope="All" />
+    <WriteItem IDREF="DID00a2" DelayForMS="0" DidWriteScope="All" />
+    <WriteItem IDREF="DID0090" DelayForMS="0" DidWriteScope="All" />
+    <WriteItem IDREF="DID009d" DelayForMS="0" DidWriteScope="All" />
+    <WriteItem IDREF="DID009c" DelayForMS="0" DidWriteScope="All" />
+  </WriteSection>
+  <RpoList>
+    <RpoCodeItem>
+      <OptionCodeID>OCJHD</OptionCodeID>
+      <OptionCode>JHD</OptionCode>
+      <Description>Hill Decent Control</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCJL1</OptionCodeID>
+      <OptionCode>JL1</OptionCode>
+      <Description>ITBC - Integrated Trlr Brk Cntrl</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCMAA</OptionCodeID>
+      <OptionCode>MAA</OptionCode>
+      <Description>Africa</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCMAF</OptionCodeID>
+      <OptionCode>MAF</OptionCode>
+      <Description>Southeast Asia</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCMAM</OptionCodeID>
+      <OptionCode>MAM</OptionCode>
+      <Description>Middle East</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCMAY</OptionCodeID>
+      <OptionCode>MAY</OptionCode>
+      <Description>Andean</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCMXW</OptionCodeID>
+      <OptionCode>MXW</OptionCode>
+      <Description>Manual Trans</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCNQG</OptionCodeID>
+      <OptionCode>NQG</OptionCode>
+      <Description>Manual</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCNQH</OptionCodeID>
+      <OptionCode>NQH</OptionCode>
+      <Description>AODI / ATC - (Electric) Automatic On Demand Trans Case</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCUE1</OptionCodeID>
+      <OptionCode>UE1</OptionCode>
+      <Description>OnStar</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCUJM</OptionCodeID>
+      <OptionCode>UJM</OptionCode>
+      <Description>4 Wheel TPM</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCY65</OptionCodeID>
+      <OptionCode>Y65</OptionCode>
+      <Description>ESS1 for NON-SUV</Description>
+    </RpoCodeItem>
+  </RpoList>
+  <ModelDesignatorList>
+  </ModelDesignatorList>
+  <RevisionLog>
+    <RevisionLogEntry>
+      <RevisionVersion>02.05.00</RevisionVersion>
+      <RevisionDate>2013-03-05</RevisionDate>
+      <RevisionDescription>Changed PN to 23167417.  DLS to EA.
+TPM now turns on with UJM, default off.  Due to plant issue, not reporting JK1.</RevisionDescription>
+      <RevisionAuthor>Ryan Cody</RevisionAuthor>
+    </RevisionLogEntry>
+  </RevisionLog>
+</ConfigurationModule>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0"?>
+<Config Version="1.1">
+	<Info>
+		<Text Id="250">Turn the ignition on.</Text>
+		<Text Id="3078">Engine off.</Text>
+		<Text Id="4339">Make sure the vehicle is stationary</Text>
+		<Text Id="4446">Ensure no active DTCs are set</Text>
+	</Info>
+	<Action Id="1">
+		<Text Id="198">Please, wait...Establishing Vehicle Communication.</Text>		
+	</Action>
+
+	<Action Id="2056">
+		<Text Id="4475">Brake Pedal Sensor Learn</Text>
+	</Action>
+
+  	<Action Id="2">
+    		<Text Id="339">Stopping Communication</Text>
+  	</Action>
+</Config>

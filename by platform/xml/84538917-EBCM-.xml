@@ -1,0 +1,1573 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigurationModule ECU-CONFIG-SCHEMA-VERSION="01.02.02" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Header>
+    <EcuName>EBCM</EcuName>
+    <DiagnosticAddress>28</DiagnosticAddress>
+    <PartNumber>0509F625</PartNumber>
+    <AlphaCode>4141</AlphaCode>
+    <useSecurityAccess>true</useSecurityAccess>
+    <SecurityAlgoTableNo>F0</SecurityAlgoTableNo>
+    <SecurityAlgoNo>E7</SecurityAlgoNo>
+    <Protocol>
+      <ApplicationLayer>GMW3110</ApplicationLayer>
+      <PhysicalLayer>
+        <PhysicalLayerSpec>GMW3122</PhysicalLayerSpec>
+        <Pin PhysicalLayerSignalName="Chassis expansion Bus (-)" PinNumber="13" />
+        <Pin PhysicalLayerSignalName="Chassis expansion Bus (+)" PinNumber="12" />
+      </PhysicalLayer>
+      <Description>XML - D2UC MY20</Description>
+    </Protocol>
+    <ConfigurationCompatibilityIdentifier>0000</ConfigurationCompatibilityIdentifier>
+  </Header>
+  <DidList>
+    <DidItem>
+      <ID>DID002e</ID>
+      <DidNo>002E</DidNo>
+      <DidDataIndicator>0000</DidDataIndicator>
+      <Name>DID_2E_Calibration_Configuration</Name>
+      <Description>Calibration Set and Feature Selection</Description>
+      <DidLength>5</DidLength>
+      <DefaultValue>0000000000</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>true</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID0090</ID>
+      <DidNo>0090</DidNo>
+      <DidDataIndicator>0090</DidDataIndicator>
+      <Name>VIN</Name>
+      <Description>Vehicle identification number</Description>
+      <DidLength>17</DidLength>
+      <DefaultValue>0000000000000000000000000000000000</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID009c</ID>
+      <DidNo>009C</DidNo>
+      <DidDataIndicator>009C</DidDataIndicator>
+      <Name>XML Part Number</Name>
+      <Description>Part Number</Description>
+      <DidLength>4</DidLength>
+      <DefaultValue>00000000</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID009d</ID>
+      <DidNo>009D</DidNo>
+      <DidDataIndicator>009D</DidDataIndicator>
+      <Name>XML Alpha Code</Name>
+      <Description>Alpha Code</Description>
+      <DidLength>2</DidLength>
+      <DefaultValue>0000</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+  </DidList>
+  <ReadSection>
+  </ReadSection>
+  <ModificationSection>
+    <ModificationItem IDREF="DID002e">
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Byte 0 - Variant Number</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>8</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="00" AutoGenExpression="(M:1XA26 &amp; !LFV &amp; !LH7 &amp; !LTG &amp; !LVL &amp; !LWW &amp; !LYT &amp; !LYX)">
+            <Product>
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="false" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="28" AutoGenExpression="(M:1XA26 &amp; !F48 &amp; J17 &amp; !J60 &amp; JJ2 &amp; !KSG &amp; !LFV &amp; !LH7 &amp; LTG &amp; !LVL &amp; !LWW &amp; !LYT &amp; !LYX &amp; M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; !MHG &amp; !MNH &amp; !MNK &amp; !MNP &amp; !UHY)">
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="false" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="29" AutoGenExpression="(M:1XA26 &amp; F48 &amp; J17 &amp; !J60 &amp; JJ2 &amp; !KSG &amp; !LFV &amp; !LH7 &amp; LTG &amp; !LVL &amp; !LWW &amp; !LYT &amp; !LYX &amp; M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; !MHG &amp; !MNH &amp; !MNK &amp; !MNP &amp; !UHY)">
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="false" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="2A" AutoGenExpression="(M:1XA26 &amp; !F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; !KSG &amp; !LFV &amp; LH7 &amp; !LTG &amp; !LVL &amp; !LWW &amp; !LYT &amp; !LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; MHG &amp; !MNH &amp; !MNK &amp; !MNP &amp; !UHY)">
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="false" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="2B" AutoGenExpression="(M:1XA26 &amp; F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; !KSG &amp; !LFV &amp; LH7 &amp; !LTG &amp; !LVL &amp; !LWW &amp; !LYT &amp; !LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; MHG &amp; !MNH &amp; !MNK &amp; !MNP &amp; !UHY)">
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="false" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="2C" AutoGenExpression="(M:1XA26 &amp; !F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; !KSG &amp; !LFV &amp; !LH7 &amp; !LTG &amp; !LVL &amp; LWW &amp; !LYT &amp; !LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; MHG &amp; !MNH &amp; !MNK &amp; !MNP &amp; !UHY) | (M:1XA26 &amp; !F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; !KSG &amp; !LFV &amp; !LH7 &amp; !LTG &amp; !LVL &amp; LWW &amp; !LYT &amp; !LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; !MHG &amp; !MNH &amp; !MNK &amp; MNP &amp; !UHY)">
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="false" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="false" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="2D" AutoGenExpression="(M:1XA26 &amp; F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; !KSG &amp; !LFV &amp; !LH7 &amp; !LTG &amp; !LVL &amp; LWW &amp; !LYT &amp; !LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; !MHG &amp; !MNH &amp; !MNK &amp; MNP &amp; !UHY)">
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="false" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="23" AutoGenExpression="(M:1XA26 &amp; !F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; !KSG &amp; LFV &amp; !LH7 &amp; !LTG &amp; !LVL &amp; !LWW &amp; !LYT &amp; !LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; !MHG &amp; MNH &amp; !MNK &amp; !MNP &amp; !UHY) | (M:1XA26 &amp; !F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; !KSG &amp; !LFV &amp; !LH7 &amp; !LTG &amp; !LVL &amp; !LWW &amp; !LYT &amp; LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; !MHG &amp; MNH &amp; !MNK &amp; !MNP &amp; !UHY)">
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="false" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="false" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="26" AutoGenExpression="(M:1XA26 &amp; !F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; !KSG &amp; LFV &amp; !LH7 &amp; !LTG &amp; !LVL &amp; !LWW &amp; !LYT &amp; !LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; !MHG &amp; !MNH &amp; MNK &amp; !MNP &amp; !UHY) | (M:1XA26 &amp; !F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; !KSG &amp; !LFV &amp; !LH7 &amp; !LTG &amp; !LVL &amp; !LWW &amp; !LYT &amp; LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; !MHG &amp; !MNH &amp; MNK &amp; !MNP &amp; !UHY) | (M:1XA26 &amp; !F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; !KSG &amp; !LFV &amp; !LH7 &amp; !LTG &amp; !LVL &amp; !LWW &amp; LYT &amp; !LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; !MHG &amp; !MNH &amp; MNK &amp; !MNP &amp; !UHY)">
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="false" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="false" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="false" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="27" AutoGenExpression="(M:1XA26 &amp; F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; !KSG &amp; LFV &amp; !LH7 &amp; !LTG &amp; !LVL &amp; !LWW &amp; !LYT &amp; !LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; !MHG &amp; !MNH &amp; MNK &amp; !MNP &amp; !UHY) | (M:1XA26 &amp; F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; !KSG &amp; !LFV &amp; !LH7 &amp; !LTG &amp; !LVL &amp; !LWW &amp; !LYT &amp; LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; !MHG &amp; !MNH &amp; MNK &amp; !MNP &amp; !UHY) | (M:1XA26 &amp; F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; !KSG &amp; !LFV &amp; !LH7 &amp; !LTG &amp; !LVL &amp; !LWW &amp; LYT &amp; !LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; !MHG &amp; !MNH &amp; MNK &amp; !MNP &amp; !UHY)">
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="false" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="false" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="false" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="37" AutoGenExpression="(M:1XA26 &amp; !F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; !KSG &amp; LFV &amp; !LH7 &amp; !LTG &amp; !LVL &amp; !LWW &amp; !LYT &amp; !LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; !MHG &amp; MNH &amp; !MNK &amp; !MNP &amp; UHY) | (M:1XA26 &amp; !F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; !KSG &amp; !LFV &amp; !LH7 &amp; !LTG &amp; !LVL &amp; !LWW &amp; !LYT &amp; LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; !MHG &amp; MNH &amp; !MNK &amp; !MNP &amp; UHY)">
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="38" AutoGenExpression="(M:1XA26 &amp; F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; !KSG &amp; LFV &amp; !LH7 &amp; !LTG &amp; !LVL &amp; !LWW &amp; !LYT &amp; !LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; !MHG &amp; MNH &amp; !MNK &amp; !MNP &amp; UHY) | (M:1XA26 &amp; F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; !KSG &amp; !LFV &amp; !LH7 &amp; !LTG &amp; !LVL &amp; !LWW &amp; !LYT &amp; LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; !MHG &amp; MNH &amp; !MNK &amp; !MNP &amp; UHY)">
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="39" AutoGenExpression="(M:1XA26 &amp; !F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; !KSG &amp; LFV &amp; !LH7 &amp; !LTG &amp; !LVL &amp; !LWW &amp; !LYT &amp; !LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; !MHG &amp; !MNH &amp; MNK &amp; !MNP &amp; UHY) | (M:1XA26 &amp; !F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; !KSG &amp; !LFV &amp; !LH7 &amp; !LTG &amp; !LVL &amp; !LWW &amp; !LYT &amp; LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; !MHG &amp; !MNH &amp; MNK &amp; !MNP &amp; UHY) | (M:1XA26 &amp; !F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; !KSG &amp; !LFV &amp; !LH7 &amp; !LTG &amp; !LVL &amp; !LWW &amp; LYT &amp; !LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; !MHG &amp; !MNH &amp; MNK &amp; !MNP &amp; UHY)">
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="3A" AutoGenExpression="(M:1XA26 &amp; F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; !KSG &amp; LFV &amp; !LH7 &amp; !LTG &amp; !LVL &amp; !LWW &amp; !LYT &amp; !LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; !MHG &amp; !MNH &amp; MNK &amp; !MNP &amp; UHY) | (M:1XA26 &amp; F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; !KSG &amp; !LFV &amp; !LH7 &amp; !LTG &amp; !LVL &amp; !LWW &amp; !LYT &amp; LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; !MHG &amp; !MNH &amp; MNK &amp; !MNP &amp; UHY) | (M:1XA26 &amp; F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; !KSG &amp; !LFV &amp; !LH7 &amp; !LTG &amp; !LVL &amp; !LWW &amp; LYT &amp; !LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; !MHG &amp; !MNH &amp; MNK &amp; !MNP &amp; UHY)">
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="3B" AutoGenExpression="(M:1XA26 &amp; !F48 &amp; J17 &amp; !J60 &amp; JJ2 &amp; !KSG &amp; !LFV &amp; !LH7 &amp; LTG &amp; !LVL &amp; !LWW &amp; !LYT &amp; !LYX &amp; M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; !MHG &amp; !MNH &amp; !MNK &amp; !MNP &amp; UHY)">
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="3C" AutoGenExpression="(M:1XA26 &amp; F48 &amp; J17 &amp; !J60 &amp; JJ2 &amp; !KSG &amp; !LFV &amp; !LH7 &amp; LTG &amp; !LVL &amp; !LWW &amp; !LYT &amp; !LYX &amp; M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; !MHG &amp; !MNH &amp; !MNK &amp; !MNP &amp; UHY)">
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="3D" AutoGenExpression="(M:1XA26 &amp; !F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; !KSG &amp; !LFV &amp; LH7 &amp; !LTG &amp; !LVL &amp; !LWW &amp; !LYT &amp; !LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; MHG &amp; !MNH &amp; !MNK &amp; !MNP &amp; UHY)">
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="3E" AutoGenExpression="(M:1XA26 &amp; F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; !KSG &amp; !LFV &amp; LH7 &amp; !LTG &amp; !LVL &amp; !LWW &amp; !LYT &amp; !LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; MHG &amp; !MNH &amp; !MNK &amp; !MNP &amp; UHY)">
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="3F" AutoGenExpression="(M:1XA26 &amp; !F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; !KSG &amp; !LFV &amp; !LH7 &amp; !LTG &amp; !LVL &amp; LWW &amp; !LYT &amp; !LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; MHG &amp; !MNH &amp; !MNK &amp; !MNP &amp; UHY) | (M:1XA26 &amp; !F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; !KSG &amp; !LFV &amp; !LH7 &amp; !LTG &amp; !LVL &amp; LWW &amp; !LYT &amp; !LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; !MHG &amp; !MNH &amp; !MNK &amp; MNP &amp; UHY)">
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="40" AutoGenExpression="(M:1XA26 &amp; F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; !KSG &amp; !LFV &amp; !LH7 &amp; !LTG &amp; !LVL &amp; LWW &amp; !LYT &amp; !LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; !MHG &amp; !MNH &amp; !MNK &amp; MNP &amp; UHY)">
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="41" AutoGenExpression="(M:1XA26 &amp; !F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; !KSG &amp; !LFV &amp; !LH7 &amp; !LTG &amp; LVL &amp; !LWW &amp; !LYT &amp; !LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; MHG &amp; !MNH &amp; !MNK &amp; !MNP &amp; UHY)">
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="42" AutoGenExpression="(M:1XA26 &amp; F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; !KSG &amp; !LFV &amp; !LH7 &amp; !LTG &amp; LVL &amp; !LWW &amp; !LYT &amp; !LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; MHG &amp; !MNH &amp; !MNK &amp; !MNP &amp; UHY)">
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="24" AutoGenExpression="(M:1XA26 &amp; F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; !KSG &amp; LFV &amp; !LH7 &amp; !LTG &amp; !LVL &amp; !LWW &amp; !LYT &amp; !LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; !MHG &amp; MNH &amp; !MNK &amp; !MNP &amp; !UHY) | (M:1XA26 &amp; F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; !KSG &amp; !LFV &amp; !LH7 &amp; !LTG &amp; !LVL &amp; !LWW &amp; !LYT &amp; LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; !MHG &amp; MNH &amp; !MNK &amp; !MNP &amp; !UHY)">
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="false" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="false" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="25" AutoGenExpression="(M:1XA26 &amp; !F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; !KSG &amp; LFV &amp; !LH7 &amp; !LTG &amp; !LVL &amp; !LWW &amp; !LYT &amp; !LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; MGR &amp; !MHG &amp; !MNH &amp; !MNK &amp; !MNP &amp; !UHY) | (M:1XA26 &amp; !F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; !KSG &amp; !LFV &amp; !LH7 &amp; !LTG &amp; !LVL &amp; !LWW &amp; !LYT &amp; LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; MGR &amp; !MHG &amp; !MNH &amp; !MNK &amp; !MNP &amp; !UHY)">
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="false" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="false" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="6B" AutoGenExpression="(M:1XA26 &amp; !F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; KSG &amp; LFV &amp; !LH7 &amp; !LTG &amp; !LVL &amp; !LWW &amp; !LYT &amp; !LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; !MHG &amp; MNH &amp; !MNK &amp; !MNP &amp; UHY) | (M:1XA26 &amp; !F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; KSG &amp; !LFV &amp; !LH7 &amp; !LTG &amp; !LVL &amp; !LWW &amp; !LYT &amp; LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; !MHG &amp; MNH &amp; !MNK &amp; !MNP &amp; UHY)">
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="6C" AutoGenExpression="(M:1XA26 &amp; F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; KSG &amp; LFV &amp; !LH7 &amp; !LTG &amp; !LVL &amp; !LWW &amp; !LYT &amp; !LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; !MHG &amp; MNH &amp; !MNK &amp; !MNP &amp; UHY) | (M:1XA26 &amp; F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; KSG &amp; !LFV &amp; !LH7 &amp; !LTG &amp; !LVL &amp; !LWW &amp; !LYT &amp; LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; !MHG &amp; MNH &amp; !MNK &amp; !MNP &amp; UHY)">
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="6D" AutoGenExpression="(M:1XA26 &amp; !F48 &amp; J17 &amp; !J60 &amp; JJ2 &amp; KSG &amp; !LFV &amp; !LH7 &amp; LTG &amp; !LVL &amp; !LWW &amp; !LYT &amp; !LYX &amp; M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; !MHG &amp; !MNH &amp; !MNK &amp; !MNP &amp; UHY)">
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="6E" AutoGenExpression="(M:1XA26 &amp; F48 &amp; J17 &amp; !J60 &amp; JJ2 &amp; KSG &amp; !LFV &amp; !LH7 &amp; LTG &amp; !LVL &amp; !LWW &amp; !LYT &amp; !LYX &amp; M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; !MHG &amp; !MNH &amp; !MNK &amp; !MNP &amp; UHY)">
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="6F" AutoGenExpression="(M:1XA26 &amp; !F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; KSG &amp; !LFV &amp; LH7 &amp; !LTG &amp; !LVL &amp; !LWW &amp; !LYT &amp; !LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; MHG &amp; !MNH &amp; !MNK &amp; !MNP &amp; UHY)">
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="70" AutoGenExpression="(M:1XA26 &amp; F48 &amp; !J17 &amp; J60 &amp; JJ2 &amp; KSG &amp; !LFV &amp; LH7 &amp; !LTG &amp; !LVL &amp; !LWW &amp; !LYT &amp; !LYX &amp; !M3D &amp; !M3H &amp; !M3U &amp; !MGR &amp; MHG &amp; !MNH &amp; !MNK &amp; !MNP &amp; UHY)">
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJ17" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCJ60" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCJJ2" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLFV" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLH7" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCLTG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLVL" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLWW" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYT" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCLYX" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3D" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3H" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCM3U" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMGR" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMHG" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMNH" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNK" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCMNP" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Default" Value="00" />
+          <Interpretation Text="Variant 35 (D2UC)" Value="23" />
+          <Interpretation Text="Variant 36 (D2UC)" Value="24" />
+          <Interpretation Text="Variant 37 (D2UC)" Value="25" />
+          <Interpretation Text="Variant 38 (D2UC)" Value="26" />
+          <Interpretation Text="Variant 39 (D2UC)" Value="27" />
+          <Interpretation Text="Variant 55 (D2UC) Mid MOC" Value="37" />
+          <Interpretation Text="Variant 40 (D2UC)" Value="28" />
+          <Interpretation Text="Variant 41 (D2UC)" Value="29" />
+          <Interpretation Text="Variant 42 (D2UC)" Value="2A" />
+          <Interpretation Text="Variant 43 (D2UC)" Value="2B" />
+          <Interpretation Text="Variant 44 (D2UC)" Value="2C" />
+          <Interpretation Text="Variant 45 (D2UC)" Value="2D" />
+          <Interpretation Text="Variant 56 (D2UC) Mid MOC" Value="38" />
+          <Interpretation Text="Variant 57 (D2UC) Mid MOC" Value="39" />
+          <Interpretation Text="Variant 58 (D2UC) Mid MOC" Value="3A" />
+          <Interpretation Text="Variant 59 (D2UC) Mid MOC" Value="3B" />
+          <Interpretation Text="Variant 60 (D2UC) Mid MOC" Value="3C" />
+          <Interpretation Text="Variant 61 (D2UC) Mid MOC" Value="3D" />
+          <Interpretation Text="Variant 62 (D2UC) Mid MOC" Value="3E" />
+          <Interpretation Text="Variant 63 (D2UC) Mid MOC" Value="3F" />
+          <Interpretation Text="Variant 64 (D2UC) Mid MOC" Value="40" />
+          <Interpretation Text="Variant 65 (D2UC) Mid MOC" Value="41" />
+          <Interpretation Text="Variant 66 (D2UC) Mid MOC" Value="42" />
+          <Interpretation Text="Variant 107 (D2UC) Hi MOC" Value="6B" />
+          <Interpretation Text="Variant 108 (D2UC) Hi MOC" Value="6C" />
+          <Interpretation Text="Variant 109 (D2UC) Hi MOC" Value="6D" />
+          <Interpretation Text="Variant 110 (D2UC) Hi MOC" Value="6E" />
+          <Interpretation Text="Variant 111 (D2UC) Hi MOC" Value="6F" />
+          <Interpretation Text="Variant 112 (D2UC) Hi MOC" Value="70" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Byte 1 - WSS Definition</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>8</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="00" AutoGenExpression="(M:1XA26 &amp; !UFQ)">
+            <Product>
+              <RpoCodeRef IDREF="OCUFQ" hasToBeAvailable="false" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="40" AutoGenExpression="(M:1XA26 &amp; UFQ)">
+            <Product>
+              <RpoCodeRef IDREF="OCUFQ" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Default (Standard WSS)" Value="00" />
+          <Interpretation Text="Bidirectional WSS (For Park Assist) Rear Axle Only" Value="40" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="2B">
+        <ParameterName>Byte 2 - Features 1</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>8</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="2B" AutoGenExpression="(M:1XA26 &amp; !KSG &amp; !UHY)">
+            <Product>
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="false" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="3B" AutoGenExpression="(M:1XA26 &amp; !KSG &amp; UHY)">
+            <Product>
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="BB" AutoGenExpression="(M:1XA26 &amp; KSG &amp; UHY)">
+            <Product>
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Default (Without LSCMB/FSRACC)" Value="2B" />
+          <Interpretation Text="With LSCMB, Without FSRACC" Value="3B" />
+          <Interpretation Text="With LSCMB and FSRACC" Value="BB" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="BA">
+        <ParameterName>Byte 3 - Features 2</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>8</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="BA" AutoGenExpression="(M:1XA26 &amp; !F48 &amp; !KSG)">
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="BB" AutoGenExpression="(M:1XA26 &amp; F48 &amp; !KSG)">
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="false" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="FA" AutoGenExpression="(M:1XA26 &amp; !F48 &amp; KSG)">
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="FB" AutoGenExpression="(M:1XA26 &amp; F48 &amp; KSG)">
+            <Product>
+              <RpoCodeRef IDREF="OCF48" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKSG" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Default (FWD)" Value="BA" />
+          <Interpretation Text="AWD" Value="BB" />
+          <Interpretation Text="FWD with FSRACC" Value="FA" />
+          <Interpretation Text="AWD with FSRACC" Value="FB" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="F4">
+        <ParameterName>Byte 4 - Features 3</ParameterName>
+        <StartByte>4</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>8</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="F4" AutoGenExpression="(M:1XA26 &amp; !JHD &amp; KL9)">
+            <Product>
+              <RpoCodeRef IDREF="OCJHD" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCKL9" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="F6" AutoGenExpression="(M:1XA26 &amp; JHD &amp; KL9)">
+            <Product>
+              <RpoCodeRef IDREF="OCJHD" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKL9" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="FC" AutoGenExpression="(M:1XA26 &amp; !JHD &amp; !KL9)">
+            <Product>
+              <RpoCodeRef IDREF="OCJHD" hasToBeAvailable="false" />
+              <RpoCodeRef IDREF="OCKL9" hasToBeAvailable="false" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="FE" AutoGenExpression="(M:1XA26 &amp; JHD &amp; !KL9)">
+            <Product>
+              <RpoCodeRef IDREF="OCJHD" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCKL9" hasToBeAvailable="false" />
+              <ModelDesignatorRef IDREF="MD1XA26" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Default (With Stop/Start, HDC/HRC not present, MBS off)" Value="F4" />
+          <Interpretation Text="With Stop/Start and HDC/HRC, MBS off" Value="F6" />
+          <Interpretation Text="Without Stop/Start (Vac Sns Wired to EBCM) HDC/HRC not present, MBS off" Value="FC" />
+          <Interpretation Text="Without Stop/Start (Vac Sns WIred to EBCM) HDC/HRC, MBS off" Value="FE" />
+        </ServiceSection>
+      </Parameter>
+    </ModificationItem>
+  </ModificationSection>
+  <WriteSection>
+    <WriteItem IDREF="DID002e" DelayForMS="100" />
+    <WriteItem IDREF="DID0090" DelayForMS="100" />
+    <WriteItem IDREF="DID009c" DelayForMS="100" />
+    <WriteItem IDREF="DID009d" DelayForMS="100" />
+  </WriteSection>
+  <RpoList>
+    <RpoCodeItem>
+      <OptionCodeID>OCF48</OptionCodeID>
+      <OptionCode>F48</OptionCode>
+      <Description>CHASSIS DRIVE LINE-ALL WHEEL DRIVE (AWD), DRIVER SELECT</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCJ17</OptionCodeID>
+      <OptionCode>J17</OptionCode>
+      <Description>BRAKE SYSTEM-POWER, FRT DISC 17" &amp; RR DISC 16", ABS</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCJ60</OptionCodeID>
+      <OptionCode>J60</OptionCode>
+      <Description>BRAKE SYSTEM-POWER, FRT &amp; RR DISC, ABS, 16"</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCJHD</OptionCodeID>
+      <OptionCode>JHD</OptionCode>
+      <Description>CONTROL-HILL DESCENT, GEAR HOLD</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCJJ2</OptionCodeID>
+      <OptionCode>JJ2</OptionCode>
+      <Description>BRAKE LINING-BRAKE NOISE AND DUST PERFORMANCE</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCKL9</OptionCodeID>
+      <OptionCode>KL9</OptionCode>
+      <Description>ENG CONTROL-STOP/START SYS</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCKSG</OptionCodeID>
+      <OptionCode>KSG</OptionCode>
+      <Description>CRUISE CONTROL-AUTOMATIC, ADAPTIVE, WITH STOP/GO</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCLFV</OptionCodeID>
+      <OptionCode>LFV</OptionCode>
+      <Description>ENGINE-GAS, 4 CYL, L4, 1.5L, DI, DOHC, VVT, TURBO, GEN 1, GMNA</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCLH7</OptionCodeID>
+      <OptionCode>LH7</OptionCode>
+      <Description>ENGINE-DIESEL, UREA, 4 CYL, 1.6L, L4, CRI, DOHC, VGT, ALUM</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCLTG</OptionCodeID>
+      <OptionCode>LTG</OptionCode>
+      <Description>ENGINE-GAS, 4 CYL, 2.0L, SIDI, L4, ALUM DOHC, VVT, DCVCP, TURBO, E0-E100, ALUM</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCLVL</OptionCodeID>
+      <OptionCode>LVL</OptionCode>
+      <Description>ENGINE-DIESEL, 4 CYL, 1.6L, CRI, DOHC, VGT, 100KW</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCLWW</OptionCodeID>
+      <OptionCode>LWW</OptionCode>
+      <Description>ENGINE-DIESEL, 4 CYL, 1.6L, L4, VGT, DOHC, ALUM, A16DTH, GEN 1</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCLYT</OptionCodeID>
+      <OptionCode>LYT</OptionCode>
+      <Description>ENGINE-GAS, 4 CYL, L4, 1.5L, DI, DOHC, VVT, FGT, TURBO, GEN 1, ALUM (MY20+)</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCLYX</OptionCodeID>
+      <OptionCode>LYX</OptionCode>
+      <Description>ENGINE-GAS, 4 CYL, L4, 1.5L, DI, DOHC, VVT, FGT, TURBO, ALUM, GEN 1</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCM3D</OptionCodeID>
+      <OptionCode>M3D</OptionCode>
+      <Description>TRANSMISSION-AUTO 9 SPD, 9T50 GEN 1</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCM3H</OptionCodeID>
+      <OptionCode>M3H</OptionCode>
+      <Description>TRANSMISSION-AUTO 9 SPD, 9T50, ETRS GEN 1</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCM3U</OptionCodeID>
+      <OptionCode>M3U</OptionCode>
+      <Description>TRANSMISSION-AUTO 9 SPD, 9T45, ETRS GEN 1</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCMGR</OptionCodeID>
+      <OptionCode>MGR</OptionCode>
+      <Description>TRANSMISSION-MAN 6 SPD, 76.5MM, 3.81 1ST, 2.15 2ND, 1.47 3RD, 1.06 4TH, 0.87 5TH, 0.74 6TH, M32-6 GEN 3</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCMHG</OptionCodeID>
+      <OptionCode>MHG</OptionCode>
+      <Description>TRANSMISSION-AUTO 6 SPD, HMD, GM, BAS+, 6T45, HYBRID, FWD</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCMNH</OptionCodeID>
+      <OptionCode>MNH</OptionCode>
+      <Description>TRANSMISSION-AUTO 6 SPD, 6T40, GEN3, VAR1</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCMNK</OptionCodeID>
+      <OptionCode>MNK</OptionCode>
+      <Description>TRANSMISSION-AUTO 6 SPD, 6T40, GEN3</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCMNP</OptionCodeID>
+      <OptionCode>MNP</OptionCode>
+      <Description>TRANSMISSION-AUTO 6 SPD, 6T45, GEN3</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCUFQ</OptionCodeID>
+      <OptionCode>UFQ</OptionCode>
+      <Description>PARK ASSIST-FRONT, REAR, LATERAL-FRONT (SEMIAUTOMATIC STEERING ADVANCED PARKING AID)</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCUHY</OptionCodeID>
+      <OptionCode>UHY</OptionCode>
+      <Description>COLL IMMINENT BRK-LOW SPEED, VEH FWD MOVEMENT, BRAKE PREFILL, INTEGRATED BRAKE ASSIST</Description>
+    </RpoCodeItem>
+  </RpoList>
+  <ModelDesignatorList>
+    <ModelDesignatorItem>
+      <ModelDesignatorID>MD1XA26</ModelDesignatorID>
+      <ModelDesignator>1XA26</ModelDesignator>
+      <Description>Chevrolet D2UC</Description>
+    </ModelDesignatorItem>
+  </ModelDesignatorList>
+  <RevisionLog>
+    <RevisionLogEntry>
+      <RevisionVersion>01.20.00</RevisionVersion>
+      <RevisionDate>2018-03-05</RevisionDate>
+      <RevisionDescription>84538917AA - 84286547.AA updated to support LYT Engine RPO.  (Uses existing LYX variants)</RevisionDescription>
+      <RevisionAuthor>Reed Shupe</RevisionAuthor>
+    </RevisionLogEntry>
+  </RevisionLog>
+</ConfigurationModule>

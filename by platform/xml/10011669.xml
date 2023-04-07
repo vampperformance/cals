@@ -1,0 +1,18 @@
+﻿<?xml version="1.0"?>
+<Config Version="1.0">
+	<Action Id="3">
+		<Text Id="334">Check Ignition is on and press Next!</Text>
+	</Action>
+	<Action Id="1">
+		<Text Id="198">Please, wait...Establishing Vehicle Communication.</Text>
+	</Action>
+	<Action Id="2018">
+		<Text Id="333">ECU Setup (Basis Configuration)</Text>
+	</Action>
+	<Action Id="2">
+		<Text Id="339">Stopping Communication</Text>
+	</Action>
+	<Action Id="6">
+		<Text Id="286">Cycle the ignition switch from &quot;on&quot; to &quot;off&quot; then back to the &quot;on&quot; position.</Text>
+	</Action>
+</Config>

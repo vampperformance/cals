@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<Config Version="1.1">
+	<Decision>
+		<Text Id="1563">Did you replace the ECU?</Text>
+		<Yes/>
+		<No Value="same"/>
+	</Decision>	
+	<Action Id="1" Condition="!same">
+		<Text Id="333">ECU Setup (Basis Configuration)</Text>
+	</Action>
+	<Action Id="2" Condition="!same">
+		<Text Id="1316">Clear DTCs</Text>
+	</Action>
+</Config>

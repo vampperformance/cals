@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<Config Version="1.1">
+	<Action Id="1">
+		<Text Id="333">ECU Setup (Basis Configuration)</Text>
+	</Action>
+</Config>

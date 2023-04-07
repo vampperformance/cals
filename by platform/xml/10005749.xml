@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<Config Version="1.2">
+	<Action Id="3">
+		<Text Id="334">Check Ignition is on and press Next! </Text>
+	</Action>
+	<Action Id="3">
+		<Text Id="730">Set Parking brake and block rear wheels. </Text>
+	</Action>
+	<Action Id="3">
+		<Text Id="1327">Shift Transmission into Neutral </Text>
+	</Action>
+	<Action Id="1">
+		<Text Id="198">Please, wait...Establishing Vehicle Communication </Text>
+	</Action>
+	<Action Id="8013">
+		<Text Id="2265">Transfer Case Control Module (TCCM) Learn </Text>
+	</Action>
+	<Action Id="2">
+		<Text Id="339">Stopping Communication </Text>
+	</Action>
+	<Info Button="next" Apply="always">
+		<Text Id="272">Place Trans. in Park or Apply Park Brake for manual Trans. </Text>
+	</Info>	
+</Config>

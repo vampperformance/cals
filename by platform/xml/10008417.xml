@@ -1,0 +1,116 @@
+﻿<?xml version="1.0"?>
+<Config Version="1.1">
+	<Info>
+		<Text Id="334">Check Ignition is on and press Next!</Text>
+	</Info>
+	<Action Id="2010">
+		<Text Id="2224">Check if value file from old ECU is available</Text>
+		<Item Result="0" Value="prepared"/>
+		<Item Result="1810" Value="missing"/>	<!-- result 1810 corresponds with "File not found" -->
+	</Action>
+	
+	<Decision Condition="missing">
+		<Text Id="1984">Did you execute the function Prepare control module for removal before you removed the old ECU?</Text>
+		<Yes Value="PFREXEC"/>
+		<No Value="PFRNOEXEC"/>
+	</Decision>	
+	<Decision Condition="PFRNOEXEC">
+		<Text Id="2763">Continue ECU configuration without execution of &quot;Prepare control module for removal&quot;?</Text>
+		<Text Id="2764">If &quot;Yes&quot;, manual ECU configuration is neccessary!</Text>
+		<Yes Value="continue"/>
+		<No Value="exit"/>
+	</Decision>
+	
+	<Info Button="next" Condition="exit">
+		<Text Id="1569">Reinstall old ECU</Text>
+		<Text Id="1571">Execute &quot;Prepare Control Module for Removal&quot;</Text>
+		<Text Id="1570">Install new ECU</Text>
+		<Text Id="1987">Please reprogramm the ECU with the newest software</Text>
+		<Text Id="1567">Execute &quot;Configuration and Setup&quot; once again</Text>
+	</Info>
+	
+	<Decision Condition="prepared PFREXEC continue">
+		<Text Id="1562">Did you reprogram the ECU with the newest software?</Text>
+		<Yes Value="new"/>
+		<No/>
+	</Decision>	
+	<Info Button="next" Condition="(!new !exit)">
+		<Text Id="1987">Please reprogramm the ECU with the newest software</Text>
+	</Info>	
+	
+	<Action Id="1" Condition="new">
+		<Text Id="198">Please, wait...Establishing Vehicle Communication.</Text>
+		<Item Result="0" Value="communication"/>		
+	</Action>
+	<Action Id="2011" Condition="new">
+		<Text Id="2191">Check of Preconditions</Text>
+	</Action>
+	
+<!-- RESET ALL LEARN VALUES -->
+	<Action Id="2020" Condition="new">
+		<Text Id="1686">BARO Reset</Text>
+	</Action>
+	<Action Id="2021" Condition="new">
+		<Text Id="1687">Pump Learning Reset</Text>
+	</Action>
+	<Decision Condition="new">
+		<Text Id="2967">Is the vehicle equipped with reductant injection system (BlueInjection)?</Text>
+		<Yes Value="SCR"/>
+		<No/>
+	</Decision>
+	<Action Id="2023" Condition="SCR">
+		<Text Id="2280">Selective Catalytic Reduction Data Reset</Text>
+	</Action>
+	<Action Id="2025" Condition="SCR">
+		<Text Id="2968">Reductant Fluid Tank Level Reset</Text>
+	</Action>
+<!-- END OF RESET ALL LEARN VALUES -->
+	
+	<Action Id="2012" Condition="new">
+		<Text Id="340">Performing Setup new Control Module</Text>
+	</Action>
+	
+<!-- OIL LIFE SETUP -->
+	<Action Id="2030" Condition="(new !missing)">
+		<Text Id="783">Program learned Values from previous ECU</Text>
+		<Item Result="383" Value="forceOilLife"/>	<!-- result 383 corresponds with "Error Reading Data" -->
+		<Item Result="1810" Value="forceOilLife"/>	<!-- result 1810 corresponds with "File not found" -->
+		<Item Result="2104" Value="forceOilLife"/>	<!-- result 2104 corresponds with "Incomplete" -->
+	</Action>
+	<Action Id="2026" Condition="(new forceOilLife) (new missing)">
+		<Text Id="402">Engine Oil Life Reset</Text>
+	</Action>
+	<Info Button="next" Condition="(new forceOilLife) (new missing)">
+		<Text Id="820">Please execute Engine Oil Change - no valid Oil Life data available</Text>
+	</Info>	
+<!-- END OF OIL LIFE SETUP -->
+
+	
+<!-- INJECTOR CODE SETUP -->
+	<Action Id="2032" Condition="(new !missing)">
+		<Text Id="783">Program learned Values from previous ECU</Text>
+		<Item Result="383" Value="forceInjectorCodes"/>		<!-- result 383 corresponds with "Error Reading Data" -->
+		<Item Result="1810" Value="forceInjectorCodes"/>	<!-- result 1810 corresponds with "File not found" -->
+		<Item Result="2104" Value="forceInjectorCodes"/>	<!-- result 2104 corresponds with "Incomplete" -->
+	</Action>
+	<Action Id="2053" Condition="(new forceInjectorCodes) (new missing)">
+		<Text Id="2223">Perform manual ECU configuration.</Text>
+	</Action>
+<!-- END OF INJECTOR CODE SETUP -->
+
+	<Info Condition="communication">
+		<Text Id="334">Check Ignition is on and press Next!</Text>
+	</Info>
+	<Action Id="2013" Condition="communication">
+		<Text Id="2388">Short Power Down Ignition Cycle</Text>
+	</Action>
+	<Action Id="4" Condition="communication">
+		<Text Id="1678">Finalize ECU Configuration / Reconfiguration</Text>
+	</Action>
+	<Action Id="2" Apply="always" Condition="communication">
+		<Text Id="339">Stopping Communication</Text>
+	</Action>
+	<Action Id="6" Apply="always" Condition="communication">
+		<Text Id="286">Cycle the ignition switch from &quot;on&quot; to &quot;off&quot; then back to the &quot;on&quot; position.</Text>
+	</Action>
+</Config>

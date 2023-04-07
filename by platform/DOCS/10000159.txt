@@ -1,0 +1,5 @@
+334	Check Ignition is on and press Next!	2	3
+198	Please, wait...Establishing Vehicle Communication	2	1
+340	Performing Setup new Control Module	2	5
+339	Stopping Communication	2	2
+286	Cycle the ignition switch from "on" to "off" then back to the "on" position	2	6

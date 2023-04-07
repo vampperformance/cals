@@ -1,0 +1,4 @@
+		270	Brake Pedal Position Sensor Learn	1	3
+		282	Setup SDM Primary Key BCM	1	3
+		308	Tire Type/Pressure Selection	1	3
+		319	BCM Tire Pressure Monitor Learn	C1	3

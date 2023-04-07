@@ -1,0 +1,4 @@
+334	Check Ignition is on and press Next!	2	3
+198	Please, wait...Establishing Vehicle Communication	2	1
+333	ECU Setup (Basis Configuration)	C1	2003
+339	Stopping Communication	2	2

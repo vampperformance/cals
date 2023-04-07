@@ -1,0 +1,30 @@
+﻿<?xml version="1.0"?>
+<Config Version="1.0">
+	<Action Id="3">
+		<Text Id="334">Check Ignition is on and press Next!</Text>
+	</Action>
+	<Action Id="1">
+		<Text Id="198">Please, wait...Establishing Vehicle Communication</Text>
+	</Action>
+	<Action Id="2002">
+		<Text Id="282">Setup SDM Primary Key BCM</Text>
+	</Action>
+	<Action Id="2004">
+		<Text Id="285">SDM Enable Deployment Loops</Text>
+	</Action>
+	<Info>
+		<Text Id="1978">Place the vehicle on a flat level surface and remove all excess weight.</Text>
+	</Info>
+	<Info>
+		<Text Id="1132">Press Next to start the procedure!</Text>
+	</Info>
+	<Action Id="3008">
+		<Text Id="431">Performing Yaw Rate Sensor Learn</Text>
+	</Action>
+	<Action Id="2">
+		<Text Id="339">Stopping Communication</Text>
+	</Action>
+	<Action Id="6">
+		<Text Id="286">Cycle the ignition switch from &quot;on&quot; to &quot;off&quot; then back to the &quot;on&quot; position.</Text>
+	</Action>
+</Config>

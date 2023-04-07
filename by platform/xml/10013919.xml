@@ -1,0 +1,33 @@
+﻿<?xml version="1.0"?>
+<Config Version="1.1">
+	<Decision>
+		<Text Id="4344">Was the ECU replaced?</Text>
+		<Yes Value="NewECU"/>
+		<No/>
+	</Decision>
+	<Action Id="3" Condition="(!NewECU)">
+		<Text Id="284">Procedure is not required.</Text>
+	</Action>
+	<Decision Condition="(NewECU)">
+		<Text Id="4470">Was a Prepare Module for Removal procedure attempted?</Text>
+		<Yes Value="ModAttempt"/>
+		<No/>
+	</Decision>
+	<Action Id="3000" Condition="(NewECU !ModAttempt)">
+		<Text Id="4472">Please execute Prepare Module For Removal procedure.</Text>
+	</Action>
+	<Info Condition="(NewECU ModAttempt)">
+		<Text Id="250">Turn the ignition on</Text>
+		<Text Id="3078">Engine Off</Text>
+		<Text Id="4339">Make sure the vehicle is stationary.</Text>
+	</Info>
+	<Action Id="1" Condition="(NewECU ModAttempt)">
+		<Text Id="198">Please, wait...Establishing Vehicle Communication.</Text>
+	</Action>
+	<Action Id="2045" Condition="(NewECU ModAttempt)">
+		<Text Id="4398">Engine Air Filter Life Reset</Text>
+	</Action>
+	<Action Id="2" Condition="(NewECU ModAttempt)">
+		<Text Id="339">Stopping Communication</Text>
+	</Action>
+</Config>

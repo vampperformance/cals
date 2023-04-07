@@ -1,0 +1,110 @@
+﻿<?xml version="1.0"?>
+<Config Version="1.1">
+	<Info>
+		<Text Id="334">Check Ignition is on and press Next!</Text>
+	</Info>
+	<Action Id="2010">
+		<Text Id="2224">Check if value file from old ECU is available</Text>
+		<Item Result="0" Value="prepared"/>
+		<Item Result="1810" Value="missing"/>	<!-- result 1810 corresponds with "File not found" -->
+	</Action>
+	
+	<Decision Condition="missing">
+		<Text Id="1984">Did you execute the function Prepare control module for removal before you removed the old ECU?</Text>
+		<Yes Value="PFREXEC"/>
+		<No Value="PFRNOEXEC"/>
+	</Decision>	
+	<Decision Condition="PFRNOEXEC">
+		<Text Id="2763">Continue ECU configuration without execution of &quot;Prepare control module for removal&quot;?</Text>
+		<Text Id="2764">If &quot;Yes&quot;, manual ECU configuration is neccessary!</Text>
+		<Yes Value="continue"/>
+		<No Value="exit"/>
+	</Decision>
+	
+	<Info Button="next" Condition="exit">
+		<Text Id="1569">Reinstall old ECU</Text>
+		<Text Id="1571">Execute &quot;Prepare Control Module for Removal&quot;</Text>
+		<Text Id="1570">Install new ECU</Text>
+		<Text Id="1987">Please reprogramm the ECU with the newest software</Text>
+		<Text Id="1567">Execute &quot;Configuration and Setup&quot; once again</Text>
+	</Info>
+	
+	<Decision Condition="prepared PFREXEC continue">
+		<Text Id="1562">Did you reprogram the ECU with the newest software?</Text>
+		<Yes Value="new"/>
+		<No/>
+	</Decision>	
+	<Info Button="next" Condition="(!new !exit)">
+		<Text Id="1987">Please reprogramm the ECU with the newest software</Text>
+	</Info>	
+	
+	<Action Id="1" Condition="new">
+		<Text Id="198">Please, wait...Establishing Vehicle Communication.</Text>
+		<Item Result="0" Value="communication"/>		
+	</Action>
+	<Action Id="2011" Condition="new">
+		<Text Id="2191">Check of Preconditions</Text>
+	</Action>
+
+	
+<!-- OIL LIFE SETUP -->
+	<Action Id="2030" Condition="(new !missing)">
+		<Text Id="783">Program learned Values from previous ECU</Text>
+		<Item Result="383" Value="forceOilLife"/>	<!-- result 383 corresponds with "Error Reading Data" -->
+		<Item Result="1810" Value="forceOilLife"/>	<!-- result 1810 corresponds with "File not found" -->
+		<Item Result="2104" Value="forceOilLife"/>	<!-- result 2104 corresponds with "Incomplete" -->
+	</Action>
+	<Action Id="2028" Condition="(new forceOilLife) (new missing)">
+		<Text Id="402">Engine Oil Life Reset</Text>
+	</Action>
+	<Info Button="next" Condition="(new forceOilLife) (new missing)">
+		<Text Id="4469">If Engine Oil Life value could not be reset. Please use GDS2 to reset the Engine Oil Life.</Text>
+	</Info>	
+<!-- END OF OIL LIFE SETUP -->
+
+	<Decision Condition="new">
+		<Text Id="4465">Is this a vehicle in the United States of America, or subject to CARB (California Air Resources Board) restrictions?</Text>
+		<Yes Value="yesCARB"/>
+		<No Value="noCARB"/>
+	</Decision>
+
+<!-- IDLE SPEED ADJUSTMENT SETUP -->
+	<Action Id="2039" Condition="(new !missing) (new noCARB)">
+		<Text Id="783">Program learned Values from previous ECU</Text>
+		<Item Result="383" Value="forceIdleSpeed"/>	<!-- result 383 corresponds with "Error Reading Data" -->
+		<Item Result="1810" Value="forceIdleSpeed"/>	<!-- result 1810 corresponds with "File not found" -->
+		<Item Result="2104" Value="forceIdleSpeed"/>	<!-- result 2104 corresponds with "Incomplete" -->
+	</Action>
+	<Info Button="next" Condition="(new forceIdleSpeed) (new missing) (new yesCARB)">
+		<Text Id="4466">Could not reset the Engine Idle Speed to prior values.  Please use GDS2 to adjust the Idle Speed if needed.</Text>
+	</Info>	
+<!-- END OF IDLE SPEED ADJUSTMENT SETUP -->
+
+<!-- ENGINE OIL TYPE SETUP -->
+	<Action Id="2040" Condition="(new !missing)">
+		<Text Id="783">Program learned Values from previous ECU</Text>
+		<Item Result="383" Value="forceOilType"/>	<!-- result 383 corresponds with "Error Reading Data" -->
+		<Item Result="1810" Value="forceOilType"/>	<!-- result 1810 corresponds with "File not found" -->
+		<Item Result="2104" Value="forceOilType"/>	<!-- result 2104 corresponds with "Incomplete" -->
+	</Action>
+	<Info Button="next" Condition="(new forceOilType) (new missing)">
+		<Text Id="4467">Could not reset the Engine Oil Type to prior values. If this vehicle uses a non-conventional oil please use GDS2 to select the proper Oil Type.</Text>
+	</Info>	
+<!-- END OF ENGINE OIL TYPE SETUP -->
+
+<!-- ENGINE TIRE SIZE SETUP -->
+	<Action Id="2041" Condition="(new !missing)">
+		<Text Id="783">Program learned Values from previous ECU</Text>
+		<Item Result="383" Value="forceTireSize"/>	<!-- result 383 corresponds with "Error Reading Data" -->
+		<Item Result="1810" Value="forceTireSize"/>	<!-- result 1810 corresponds with "File not found" -->
+		<Item Result="2104" Value="forceTireSize"/>	<!-- result 2104 corresponds with "Incomplete" -->
+	</Action>
+	<Info Button="next" Condition="(new forceTireSize) (new missing)">
+		<Text Id="4468">Could not reset the Tire Size to prior values. Please use GDS2 to adjust the Tire Size if needed.</Text>
+	</Info>	
+<!-- END OF ENGINE TIRE SIZE SETUP -->
+
+  	<Action Id="2">
+    		<Text Id="339">Stopping Communication</Text>
+  	</Action>
+</Config>

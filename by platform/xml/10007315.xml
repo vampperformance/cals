@@ -1,0 +1,43 @@
+﻿<?xml version="1.0"?>
+<Config Version="1.0">
+  <Info>
+    <Text Id="2775" Align="left">Precautions:</Text>
+    <Text Id="2776" Align="left" Bullet="circle">Receive all keys from the customer</Text>
+    <Text Id="2789" Align="left" Bullet="circle">Unlearned keys will no longer work</Text>
+    <Text Id="3244" Align="left" Bullet="circle">To prevent the BCM from entering into CAN communications sleep mode, turn Hazard Switch ON</Text>
+    <Text Id="2777" Align="left" Bullet="circle">After performing the registration process, always verify the operation of all keys</Text>
+  </Info>
+  <Action Id="3">
+    <Text Id="3245">Check Ignition is on, apply brake, and press Next!</Text>
+  </Action>
+  <Action Id="1">
+    <Text Id="198">Please, wait...Establishing Vehicle Communication.</Text>
+  </Action>
+  <Action Id="2017">
+    <Text Id="2771">You have selected to perform a key relearn.</Text>
+  </Action>
+  <Action Id="2">
+    <Text Id="339">Stopping Communication</Text>
+  </Action>
+  <Info>
+    <Text Id="2778" Align="left">Key Registeration Process:</Text>
+    <Text Id="2779" Align="left" Bullet="circle">Remove inserted ignition key</Text>
+    <Text Id="2780" Align="left" Bullet="circle">Please turn Ignition on with key, which should be learned, and wait 5 seconds</Text>
+    <Text Id="2781" Align="left" Bullet="circle">Check that security indicator on dash blinks 5 times</Text>
+    <Text Id="2782" Align="left" Bullet="circle">Remove ingition key and wait 3 seconds</Text>
+    <Text Id="2783" Align="left" Bullet="circle">You can Learn up to 5 keys repeating bullets 2 through 4</Text>
+  </Info>
+  <Info>
+    <Text Id="2784" Align="left">Complete Registration Key Process:</Text>
+    <Text Id="2785" Align="left">After Key Registeration Process, the system returns to key registration mode. It is necessary to end operation according to the following procedure.</Text>
+    <Text Id="2786" Align="left" Bullet="circle">Inserted registered ignition key and turn to the ON position</Text>
+    <Text Id="2787" Align="left" Bullet="circle">Turn ignition key off, remove ignition key, and wait 10 seconds</Text>
+    <Text Id="2788" Align="left" Bullet="circle">Verify that the security indicator blinks at intervals of approximately 3 seconds</Text>
+  </Info>
+  <Info>
+    <Text Id="2806" Align="left">Confirm Operation:</Text>
+    <Text Id="2807" Align="left">Check that each registered key can start the engine.</Text>
+  </Info>
+</Config>
+
+

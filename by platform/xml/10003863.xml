@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<Config Version="1.0">
+	<Action Id="3">
+		<Text Id="1671">Make sure the original Engine Control Module is in the vehicle. </Text>
+	</Action>
+	<Action Id="3">
+		<Text Id="334">Check Ignition is on and press Next! </Text>
+	</Action>
+	<Action Id="1">
+		<Text Id="198">Please, wait...Establishing Vehicle Communication </Text>
+	</Action>
+	<Action Id="8015">
+		<Text Id="999">Prepare ECM for Removal </Text>
+	</Action>
+	<Action Id="2">
+		<Text Id="339">Stopping Communication </Text>
+	</Action>
+</Config>

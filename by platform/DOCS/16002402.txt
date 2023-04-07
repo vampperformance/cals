@@ -1,0 +1,7 @@
+931	Start engine and press Next!	2	3
+198	Please, wait...Establishing Vehicle Communication	2	1
+335	Checking Vehicle speed is 0	2	1001
+337	Check Vehicle is Unloaded and Horizontal Aligned and press Next!	2	3
+340	Performing Setup new Control Module	2	4
+338	Performing Automatic Headlamp Levelling Sensor Relearn	2	3001
+339	Stopping Communication	2	2

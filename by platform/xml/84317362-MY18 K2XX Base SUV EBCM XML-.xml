@@ -1,0 +1,1166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigurationModule ECU-CONFIG-SCHEMA-VERSION="01.02.02" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Header>
+    <EcuName>MY18 K2XX Base SUV EBCM XML</EcuName>
+    <DiagnosticAddress>28</DiagnosticAddress>
+    <PartNumber>050694B2</PartNumber>
+    <AlphaCode>4441</AlphaCode>
+    <useSecurityAccess>true</useSecurityAccess>
+    <SecurityAlgoTableNo>F0</SecurityAlgoTableNo>
+    <SecurityAlgoNo>A2</SecurityAlgoNo>
+    <Protocol>
+      <ApplicationLayer>GMW3110</ApplicationLayer>
+      <PhysicalLayer>
+        <PhysicalLayerSpec>GMW3122</PhysicalLayerSpec>
+        <Pin PhysicalLayerSignalName="CAN HI" PinNumber="12" />
+        <Pin PhysicalLayerSignalName="CAN LO" PinNumber="13" />
+      </PhysicalLayer>
+      <Description>CHASSIS EXPANSION</Description>
+    </Protocol>
+    <ConfigurationCompatibilityIdentifier>0206</ConfigurationCompatibilityIdentifier>
+  </Header>
+  <DidList>
+    <DidItem>
+      <ID>DID0090</ID>
+      <DidNo>0090</DidNo>
+      <DidDataIndicator>0090</DidDataIndicator>
+      <Name>VIN</Name>
+      <Description>VIN</Description>
+      <DidLength>17</DidLength>
+      <DefaultValue>0000000000000000000000000000000000</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID0098</ID>
+      <DidNo>0098</DidNo>
+      <DidDataIndicator>0098</DidDataIndicator>
+      <Name>Tester SerNum       </Name>
+      <Description>Repair Shop Code or Tester Serial Number</Description>
+      <DidLength>10</DidLength>
+      <DefaultValue>00000000000000000000</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID0099</ID>
+      <DidNo>0099</DidNo>
+      <DidDataIndicator>0099</DidDataIndicator>
+      <Name>Date Programmed</Name>
+      <Description>Programming Date</Description>
+      <DidLength>4</DidLength>
+      <DefaultValue>00000000</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID009c</ID>
+      <DidNo>009C</DidNo>
+      <DidDataIndicator>009C</DidDataIndicator>
+      <Name>XML PN DID</Name>
+      <Description>XML PN</Description>
+      <DidLength>4</DidLength>
+      <DefaultValue>00000000</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID009d</ID>
+      <DidNo>009D</DidNo>
+      <DidDataIndicator>009D</DidDataIndicator>
+      <Name>XML PN DLS DID</Name>
+      <Description>XML DLS</Description>
+      <DidLength>2</DidLength>
+      <DefaultValue>0000</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID00a1</ID>
+      <DidNo>00A1</DidNo>
+      <DidDataIndicator>0000</DidDataIndicator>
+      <Name>A1 DID</Name>
+      <Description>Vehicle Config - A1 DID Data</Description>
+      <DidLength>5</DidLength>
+      <DefaultValue>6328210776</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID00a2</ID>
+      <DidNo>00A2</DidNo>
+      <DidDataIndicator>0000</DidDataIndicator>
+      <Name>A2 DID</Name>
+      <Description>Vehicle Config - A2 DID</Description>
+      <DidLength>5</DidLength>
+      <DefaultValue>0109111A36</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID00a3</ID>
+      <DidNo>00A3</DidNo>
+      <DidDataIndicator>0000</DidDataIndicator>
+      <Name>A3 DID</Name>
+      <Description>Vehicle Config - A3 DID</Description>
+      <DidLength>5</DidLength>
+      <DefaultValue>20058080F6</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+  </DidList>
+  <ReadSection>
+    <ReadItem IDREF="DID00a1" />
+    <ReadItem IDREF="DID00a2" />
+    <ReadItem IDREF="DID00a3" />
+  </ReadSection>
+  <ModificationSection>
+    <ModificationItem IDREF="DID00a1">
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>HBA Intellegent Brake Assist (IBA)</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(UHY)">
+            <Product>
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>HBA Fading Brake Support</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>HBA Rear Brake Boost (RBB)</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>HBA Fading Prefill</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>Low Vacuum Brake Assist/LVHBA (low vacuum)</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>Hydraulic Brake Boost (HBB) - Failed Boost</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Check Bit 15</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="No Features Selected" Value="01" />
+          <Interpretation Text="Some Features Selected" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Hill Descent Control (HDC)</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(JHD)">
+            <Product>
+              <RpoCodeRef IDREF="OCJHD" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>HDC Speed Offset for Exports</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(JHD &amp; !MAH)">
+            <Product>
+              <RpoCodeRef IDREF="OCJHD" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMAH" hasToBeAvailable="false" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="00" AutoGenExpression="(JHD &amp; MAH)">
+            <Product>
+              <RpoCodeRef IDREF="OCJHD" hasToBeAvailable="true" />
+              <RpoCodeRef IDREF="OCMAH" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>HDC Uses Cruise Switches</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(JHD)">
+            <Product>
+              <RpoCodeRef IDREF="OCJHD" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>Engine Drag Control (EDTR)</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Electronic Locking Slip Differential</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>Enhanced Off Road Control</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Power Take Off</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Check Bit 23</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="No Features Selected" Value="01" />
+          <Interpretation Text="Some Features Selected" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>Hill Start Assist (HSA)</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Automatic Park Assist</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>EPB Dynamic Deceleration (cable puller)</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="02">
+        <ParameterName>Vacuum Sensor Type</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>2</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Unknown" Value="00" />
+          <Interpretation Text="None" Value="01" />
+          <Interpretation Text="Direct Wire" Value="02" />
+          <Interpretation Text="CAN bus" Value="03" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Electric Vacuum Pump (EVP) Control</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Check Bit 31</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="No Features Selected" Value="01" />
+          <Interpretation Text="Some Features Selected" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>Adaptive Pressure Calibration</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>Proactive Rollover Control</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>Trailer Sway Assist (Trailer Brake Stabilization)</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Trailer Sway Control (TBS Tow Haul)</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Integrated Trailer Brake Control (ITBC) / TBS ITBC</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(JL1)">
+            <Product>
+              <RpoCodeRef IDREF="OCJL1" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Steering Torque Overlay</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Reserved</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Check Bit 39</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Some Features Selected" Value="00" />
+          <Interpretation Text="No Features Selected" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="76">
+        <ParameterName>Protocol Definition</ParameterName>
+        <StartByte>4</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>8</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>HBA Spike Apply/Panic</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Ground Hold Operation (HA Start Stop Assist)</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+    </ModificationItem>
+    <ModificationItem IDREF="DID00a2">
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>Transfer Case Control Module</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>3</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="04" AutoGenExpression="(NP0) | (NQH)">
+            <Product>
+              <RpoCodeRef IDREF="OCNP0" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <RpoCodeRef IDREF="OCNQH" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Unknown" Value="00" />
+          <Interpretation Text="Not Equipped 4X2" Value="01" />
+          <Interpretation Text="Manual Equipped 4x4" Value="02" />
+          <Interpretation Text="Electric (non-Active)" Value="03" />
+          <Interpretation Text="Electric (w/ Active)" Value="04" />
+          <Interpretation Text="AWD (ATC)" Value="05" />
+          <Interpretation Text="AWD (w/Twin Clutch)" Value="06" />
+          <Interpretation Text="Reserved" Value="07" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="02">
+        <ParameterName>Transmission Control Module</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>3</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="04" AutoGenExpression="(MF6)">
+            <Product>
+              <RpoCodeRef IDREF="OCMF6" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="03" AutoGenExpression="(M5U)">
+            <Product>
+              <RpoCodeRef IDREF="OCM5U" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Manual" Value="01" />
+          <Interpretation Text="Automatic 6-SPD" Value="02" />
+          <Interpretation Text="Unknown" Value="00" />
+          <Interpretation Text="Automatic 8-SPD" Value="03" />
+          <Interpretation Text="Automatic 10-SPD" Value="04" />
+          <Interpretation Text="Reserved" Value="05" />
+          <Interpretation Text="Reserved" Value="06" />
+          <Interpretation Text="Reserved" Value="07" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>Collision Mitigation</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>3</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="06" AutoGenExpression="(UHY)">
+            <Product>
+              <RpoCodeRef IDREF="OCUHY" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Unknown" Value="00" />
+          <Interpretation Text="None" Value="01" />
+          <Interpretation Text="Front Camera Module (0.0g - Prefill)" Value="02" />
+          <Interpretation Text="Crash Preparation System (0.3g)" Value="03" />
+          <Interpretation Text="Radar Feature Bundle (0.6g)" Value="04" />
+          <Interpretation Text="External Object Calculation Module (1.0g+)" Value="05" />
+          <Interpretation Text="Low Speed Collision Mitigation Braking" Value="06" />
+          <Interpretation Text="Reserved" Value="07" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Reserved</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Reserved</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Rear Virtual Bumper (RVB)</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Driver Initiated Brake Prefill</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Check Bit 47</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="No Features Selected" Value="01" />
+          <Interpretation Text="Some Features Selected" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>WSS Legislated Diag Status</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>On Star Communications</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(UE1)">
+            <Product>
+              <RpoCodeRef IDREF="OCUE1" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Check Bit 55</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Some Features Selected" Value="00" />
+          <Interpretation Text="No Features Selected" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Motorized Seat Belt (with ESS 2B)</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>Driving Mode Control</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Transmission Shift Lever (DMC Shift Lever)</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Recommend AWD DIC</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>TCS and ESC Moding via IPC</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Electronic Transmission Range Select</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Check Bit 63</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Some Features Selected" Value="00" />
+          <Interpretation Text="No Features Selected" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="02">
+        <ParameterName>Directional Wheel Speed Sensors</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>2</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Unknown" Value="00" />
+          <Interpretation Text="Neither Axle" Value="01" />
+          <Interpretation Text="Front Axle Only" Value="02" />
+          <Interpretation Text="Both Axles" Value="03" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="02">
+        <ParameterName>Direct Tire Pressure Monitoring</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>2</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Unknown" Value="00" />
+          <Interpretation Text="Not Equipped" Value="01" />
+          <Interpretation Text="4-wheel DTPM" Value="02" />
+          <Interpretation Text="DTPM w/Spare" Value="03" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>Adaptive Cruise Control</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>3</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Unknown" Value="00" />
+          <Interpretation Text="ECC Standard" Value="01" />
+          <Interpretation Text="ECC Powertrain Autonomous Braking" Value="02" />
+          <Interpretation Text="ACC Conventional" Value="03" />
+          <Interpretation Text="ACC Full Speed Range (w/Radar)" Value="04" />
+          <Interpretation Text="ACC Full Speed Range (w/Camera)" Value="05" />
+          <Interpretation Text="Reserved" Value="06" />
+          <Interpretation Text="Reserved" Value="07" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Check Bit 71</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Some Features Selected" Value="00" />
+          <Interpretation Text="No Features Selected" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="36">
+        <ParameterName>Protocol Defintion</ParameterName>
+        <StartByte>4</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>8</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+    </ModificationItem>
+    <ModificationItem IDREF="DID00a3">
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Right Hand Drive</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Traction Control (TC Shift Logic)</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="DISABLED" Value="00" />
+          <Interpretation Text="ENABLED" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Brake Disc Cleaning</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="DISABLED" Value="00" />
+          <Interpretation Text="ENABLED" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Reserved</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="DISABLED" Value="00" />
+          <Interpretation Text="ENABLED" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="02">
+        <ParameterName>IMU Sensors</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>2</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Unknown" Value="00" />
+          <Interpretation Text="Stand-Alone IMU" Value="01" />
+          <Interpretation Text="Integrated SDM" Value="02" />
+          <Interpretation Text="Reserved / Ignored" Value="03" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Reserved</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Check Bit 79</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Some Features Selected" Value="00" />
+          <Interpretation Text="No Features Selected" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>Pinion Angle Control (Low Speed Pinion Control)</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Suspension Control Module (SARC)</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="ENABLED" Value="01" />
+          <Interpretation Text="DISABLED" Value="00" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Reserved</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Reserved</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Reserved</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Check Bit 87</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Some Features Selected" Value="00" />
+          <Interpretation Text="No Features Selected" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Reserved</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Reserved</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Reserved</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Reserved</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Reserved</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Reserved</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Reserved</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Reserved</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>Check Bit 95</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Some Features Selected" Value="00" />
+          <Interpretation Text="No Features Selected" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Reserved</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Reserved</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Reserved</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Reserved</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Reserved</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Reserved</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Reserved</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>Check Bit 103</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Some Features Selected" Value="00" />
+          <Interpretation Text="No Features Selected" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="F6">
+        <ParameterName>Protocol Definition</ParameterName>
+        <StartByte>4</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>8</BitLength>
+        <ConfData useConfData="true" />
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>ESC Force Enable Speed (Performance Mode Selection Limited by Speed)</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="DISABLED" Value="00" />
+          <Interpretation Text="ENABLED" Value="01" />
+        </ServiceSection>
+      </Parameter>
+    </ModificationItem>
+  </ModificationSection>
+  <WriteSection>
+    <WriteItem IDREF="DID00a1" DelayForMS="0" DidWriteScope="All" />
+    <WriteItem IDREF="DID00a2" DelayForMS="0" DidWriteScope="All" />
+    <WriteItem IDREF="DID00a3" DelayForMS="0" DidWriteScope="All" />
+    <WriteItem IDREF="DID0098" DelayForMS="0" DidWriteScope="All" />
+    <WriteItem IDREF="DID0099" DelayForMS="0" DidWriteScope="All" />
+    <WriteItem IDREF="DID009c" DelayForMS="0" DidWriteScope="All" />
+    <WriteItem IDREF="DID009d" DelayForMS="0" DidWriteScope="All" />
+    <WriteItem IDREF="DID0090" DelayForMS="0" DidWriteScope="All" />
+  </WriteSection>
+  <RpoList>
+    <RpoCodeItem>
+      <OptionCodeID>OCJHD</OptionCodeID>
+      <OptionCode>JHD</OptionCode>
+      <Description>Hill Descent Control</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCJL1</OptionCodeID>
+      <OptionCode>JL1</OptionCode>
+      <Description>CONTROL-INTEGRATED TRAILER BRAKE</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCM5U</OptionCodeID>
+      <OptionCode>M5U</OptionCode>
+      <Description>TRANSMISSION-AUTO 8 SPD, 8L90</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCMAH</OptionCodeID>
+      <OptionCode>MAH</OptionCode>
+      <Description>MARKETING AREA - U.S.A., PR, &amp; USVI</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCMF6</OptionCodeID>
+      <OptionCode>MF6</OptionCode>
+      <Description>TRANSMISSION-AUTO 10 SPD, 10R80</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCNP0</OptionCodeID>
+      <OptionCode>NP0</OptionCode>
+      <Description>TRANSFER CASE-ACTIVE, SINGLE SPEED,SWITCH ACTIVATED,ALUM</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCNQH</OptionCodeID>
+      <OptionCode>NQH</OptionCode>
+      <Description>TRANSFER CASE-ACTIVE, TWO SPEED, SWITCH ACTIVATED, ALUM</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCUE1</OptionCodeID>
+      <OptionCode>UE1</OptionCode>
+      <Description>COMMUNICATION SYSTEM-VEHICLE, ONSTAR</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCUHY</OptionCodeID>
+      <OptionCode>UHY</OptionCode>
+      <Description>COLL IMMINENT BRK-LOW SPEED, VEH FWD MOVEMENT, BRAKE PREFILL, INTEGRATED BRAKE ASSIST</Description>
+    </RpoCodeItem>
+  </RpoList>
+  <ModelDesignatorList>
+  </ModelDesignatorList>
+  <RevisionLog>
+    <RevisionLogEntry>
+      <RevisionVersion>01.08.00</RevisionVersion>
+      <RevisionDate>2017-01-25</RevisionDate>
+      <RevisionDescription>Dir WSS logic removed. Front axle only for Base/ESS1.</RevisionDescription>
+      <RevisionAuthor>Dan Polito</RevisionAuthor>
+    </RevisionLogEntry>
+  </RevisionLog>
+</ConfigurationModule>

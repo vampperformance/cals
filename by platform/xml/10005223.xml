@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<Config Version="1.0">
+	<Action Id="3">
+		<Text Id="2410">The vehicle must be elevated on a hoist with the intermediate shaft and tie rod ends disconnected! </Text>
+	</Action>
+	<Action Id="3">
+		<Text Id="2411">Make sure that all EPS wiring is connected! </Text>
+	</Action>
+	<Action Id="3">
+		<Text Id="334">Check Ignition is on and press Next! </Text>
+	</Action>
+	<Action Id="1">
+		<Text Id="198">Please, wait...Establishing Vehicle Communication </Text>
+	</Action>
+	<Action Id="2001">
+		<Text Id="2266">Power Steering Torque Sensor Learn </Text>
+	</Action>
+	<Action Id="2">
+		<Text Id="339">Stopping Communication </Text>
+	</Action>
+</Config>

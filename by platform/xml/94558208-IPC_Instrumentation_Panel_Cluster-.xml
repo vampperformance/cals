@@ -1,0 +1,3052 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigurationModule ECU-CONFIG-SCHEMA-VERSION="01.02.02" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Header>
+    <EcuName>IPC_Instrumentation_Panel_Cluster</EcuName>
+    <DiagnosticAddress>60</DiagnosticAddress>
+    <PartNumber>05A2D800</PartNumber>
+    <AlphaCode>4141</AlphaCode>
+    <useSecurityAccess>true</useSecurityAccess>
+    <SecurityAlgoTableNo>00</SecurityAlgoTableNo>
+    <SecurityAlgoNo>EE</SecurityAlgoNo>
+    <Protocol>
+      <ApplicationLayer>GMW3110</ApplicationLayer>
+      <PhysicalLayer>
+        <PhysicalLayerSpec>GMW3122</PhysicalLayerSpec>
+        <Pin PhysicalLayerSignalName="GMLAN LOW SPEED" PinNumber="1" />
+      </PhysicalLayer>
+      <Description>low speed gmlan</Description>
+    </Protocol>
+    <ConfigurationCompatibilityIdentifier>0008</ConfigurationCompatibilityIdentifier>
+  </Header>
+  <DidList>
+    <DidItem>
+      <ID>DID0002</ID>
+      <DidNo>0002</DidNo>
+      <DidDataIndicator>0000</DidDataIndicator>
+      <Name>DID_02</Name>
+      <Description>This DID enables or disables individual display warnings.</Description>
+      <DidLength>32</DidLength>
+      <DefaultValue>EBFFFFEFDFFFFC7FFFFFFFFFFF7F1EE70F26A0407755AA2FD5BAFEF115000400</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID0003</ID>
+      <DidNo>0003</DidNo>
+      <DidDataIndicator>0000</DidDataIndicator>
+      <Name>DID_03</Name>
+      <Description>This DID enables or disables 'Extended Set' warnings</Description>
+      <DidLength>9</DidLength>
+      <DefaultValue>040000FEFF7D0B0000</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID0090</ID>
+      <DidNo>0090</DidNo>
+      <DidDataIndicator>0090</DidDataIndicator>
+      <Name>DID_90</Name>
+      <Description>This DID contains the Vehicle Identification Number. It shall be write protected via security access and shall be impemented according to GMW 3110.</Description>
+      <DidLength>17</DidLength>
+      <DefaultValue>0000000000000000000000000000000000</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID009c</ID>
+      <DidNo>009C</DidNo>
+      <DidDataIndicator>009C</DidDataIndicator>
+      <Name>DID_9C</Name>
+      <Description>This DID contains the XML Data File Part Number. It shall be implemented according to GMW 3110.</Description>
+      <DidLength>4</DidLength>
+      <DefaultValue>00000000</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID009d</ID>
+      <DidNo>009D</DidNo>
+      <DidDataIndicator>009D</DidDataIndicator>
+      <Name>DID_9D</Name>
+      <Description>This DID contains the XML Data File Alpha Code. It shall be implemented according to GMW 3110.</Description>
+      <DidLength>2</DidLength>
+      <DefaultValue>FFFF</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID00a0</ID>
+      <DidNo>00A0</DidNo>
+      <DidDataIndicator>0000</DidDataIndicator>
+      <Name>DID_A0</Name>
+      <Description>This DID shall be implemented according to the GGSE ECU Diagnostic Infrastucture document and GMW 3110.                                        The MEC shall be supported during ECU development and production by all nodes which implement the SecurityAccess ($27) service.  The MEC is a single byte in permanent (EEPROM or equivalent) memory which allows a node to remain unlocked as long as its value is not $00.  When the value of the MEC becomes $00, security shall be enabled and the SecurityAccess ($27) service shall be required to access security.                                          The MEC counter shall be decremented each time system power mode transition from System Power Mode "RUN" to either System Power Mode "ACC" or "OFF".                                        A node shall not allow the value of the MEC to change once it becomes $00 unless SecurityAccess ($27) is successfully initiated (Security_Access_Unlocked is set to TRUE).</Description>
+      <DidLength>1</DidLength>
+      <DefaultValue>FE</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID00a1</ID>
+      <DidNo>00A1</DidNo>
+      <DidDataIndicator>0000</DidDataIndicator>
+      <Name>DID_A1</Name>
+      <Description>This DID is used for enabling and disabling menues on the display. It shall be write protected via security access.</Description>
+      <DidLength>12</DidLength>
+      <DefaultValue>1F11F0FFFFFF7F0000000000</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID00a2</ID>
+      <DidNo>00A2</DidNo>
+      <DidDataIndicator>0000</DidDataIndicator>
+      <Name>DID_A2</Name>
+      <Description>This DID is used for masking DTCs/FTBs in the ECU. A bit set to zero means that the DTC/FTB is disabled.                    Note:                    If DTC is triggered and then masked in this DID the DTC status byte will not be changed.                    The service $04 should be sent to the IPC after an update of this DID.</Description>
+      <DidLength>6</DidLength>
+      <DefaultValue>FFE76C4B0000</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID00a3</ID>
+      <DidNo>00A3</DidNo>
+      <DidDataIndicator>0000</DidDataIndicator>
+      <Name>DID_A3</Name>
+      <Description>This DID is used for enabling and disabling menues on the display. It shall be write protected via security access.</Description>
+      <DidLength>8</DidLength>
+      <DefaultValue>3FFDF31C1C000086</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID00a4</ID>
+      <DidNo>00A4</DidNo>
+      <DidDataIndicator>0000</DidDataIndicator>
+      <Name>DID_A4</Name>
+      <Description>This DID is used for enabling and disabling functionality. It shall be write protected via security access.</Description>
+      <DidLength>5</DidLength>
+      <DefaultValue>FADAA70200</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID00a5</ID>
+      <DidNo>00A5</DidNo>
+      <DidDataIndicator>0000</DidDataIndicator>
+      <Name>DID_A5</Name>
+      <Description>This DID is used to set functionality controls. It shall be write protected via security access.</Description>
+      <DidLength>17</DidLength>
+      <DefaultValue>091300109B0308100C0900000011800003</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID00a6</ID>
+      <DidNo>00A6</DidNo>
+      <DidDataIndicator>0000</DidDataIndicator>
+      <Name>DID_A6</Name>
+      <Description>This DID enables or disables Indicator.</Description>
+      <DidLength>7</DidLength>
+      <DefaultValue>F7BBFBF3FE0100</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID00a7</ID>
+      <DidNo>00A7</DidNo>
+      <DidDataIndicator>0000</DidDataIndicator>
+      <Name>DID_A7</Name>
+      <Description>This DID is used to set the configuration flag. It indicates if the IPC configuration was done or if it needs to be configured.</Description>
+      <DidLength>1</DidLength>
+      <DefaultValue>00</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID00a8</ID>
+      <DidNo>00A8</DidNo>
+      <DidDataIndicator>0000</DidDataIndicator>
+      <Name>DID_A8</Name>
+      <Description>This DID is used to set the display unit to any ofthe below units                     0x0 - Metric                    0x1 - US                    0x2 - Imperial</Description>
+      <DidLength>1</DidLength>
+      <DefaultValue>00</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+  </DidList>
+  <ReadSection>
+  </ReadSection>
+  <ModificationSection>
+    <ModificationItem IDREF="DID0002">
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_TIGHTEN_GAS_CAP_ENABLE</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_ECO_NOT_AVAILABLE_ENABLE</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_TRANSMISSION_SKIP_SHIFT_INDICATION_ON_ENABLE</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_VALET_SWITCH_ACTIVE_TOP_DISABLED_ENABLE</ParameterName>
+        <StartByte>4</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_REDUCE_VEHICLE_SPEED_TO_OPERATE_TOP_ENABLE</ParameterName>
+        <StartByte>4</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_CHANGE_FUEL_FILTER_ENABLE</ParameterName>
+        <StartByte>5</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(LUZ)">
+            <Product>
+              <RpoCodeRef IDREF="OCLUZ" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_TEMPERATURE_TOO_LOW_TOP_DISABLED_ENABLE</ParameterName>
+        <StartByte>5</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_TOP_SYSTEM_OVERHEATED_PLEASE_WAIT_ENABLE</ParameterName>
+        <StartByte>6</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_DETACH_CARGO_CARRIER_BEFORE_TOP_OPERATION_ENABLE</ParameterName>
+        <StartByte>6</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_ONLY_MANUAL_OPERATION_OF_TOP_POSSIBLE_ENABLE</ParameterName>
+        <StartByte>6</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_TOP_COVER_NOT_LATCHED_TRY_AGAIN_ENABLE</ParameterName>
+        <StartByte>6</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_BATTERY_VOLTAGE_TOO_LOW_TOP_DISABLED_ENABLE</ParameterName>
+        <StartByte>6</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_SERVICE_STEERING_COLUMN_LOCK_ENABLE</ParameterName>
+        <StartByte>7</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(ULS)">
+            <Product>
+              <RpoCodeRef IDREF="OCULS" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_SERVICE_POWER_STEERING_ENABLE</ParameterName>
+        <StartByte>8</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(M:1PA69 &amp; NJ1)">
+            <Product>
+              <RpoCodeRef IDREF="OCNJ1" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1PA69" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_SERVICE_BRAKE_ASSIST_ENABLE</ParameterName>
+        <StartByte>8</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_TURN_KEY_OFF_THEN_ON_REPEAT_BREATH_TEST_ENABLE</ParameterName>
+        <StartByte>8</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_TOP_OBSTRUCTED_CLEAR_OBSTACLES_ENABLE</ParameterName>
+        <StartByte>8</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_TURN_STEERING_WHEEL_TURN_KEY_OFF_THEN_ON_ENABLE</ParameterName>
+        <StartByte>8</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_SERVICE_REAR_AXLE_ENABLE</ParameterName>
+        <StartByte>9</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_BRAKES_OVERHEATED_ENABLE</ParameterName>
+        <StartByte>9</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_SERVICE_SUSPENSION_SYSTEM_ENABLE</ParameterName>
+        <StartByte>9</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_RIGHT_LOW_BEAM_FAILURE_ENABLE</ParameterName>
+        <StartByte>10</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_REAR_FOG_LIGHT_FAILURE_ENABLE</ParameterName>
+        <StartByte>10</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_LEFT_LOW_BEAM_FAILURE_ENABLE</ParameterName>
+        <StartByte>10</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_HIGH_MOUNTED_BRAKE_LIGHT_FAILURE_ENABLE</ParameterName>
+        <StartByte>10</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_SERVICE_4WD_ENABLE</ParameterName>
+        <StartByte>10</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_SERVICE_ALL_WHEEL_DRIVE_SYSTEM_ENABLE</ParameterName>
+        <StartByte>10</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_REVERSING_LIGHT_FAILURE_ENABLE</ParameterName>
+        <StartByte>11</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_RIGHT_FRONT_TURN_INDICATOR_FAILURE_ENABLE</ParameterName>
+        <StartByte>11</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_LEFT_REAR_TURN_INDICATOR_FAILURE_ENABLE</ParameterName>
+        <StartByte>11</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_LEFT_FRONT_TURN_INDICATOR_FAILURE_ENABLE</ParameterName>
+        <StartByte>11</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_LICENSE_PLATE_LIGHT_FAILURE_ENABLE</ParameterName>
+        <StartByte>11</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_CLOSE_TRUNK_TO_OPERATE_TOP_ENABLE</ParameterName>
+        <StartByte>11</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_RIGHT_FRONT_POSITION_LIGHT_FAILURE_ENABLE</ParameterName>
+        <StartByte>11</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_LEFT_FRONT_POSITION_LIGHT_FAILURE_ENABLE</ParameterName>
+        <StartByte>11</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_CHECK_TRAILER_REAR_LAMP_ENABLE</ParameterName>
+        <StartByte>12</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_CHECK_TRAILER_REAR_FOG_LAMP_ENABLE</ParameterName>
+        <StartByte>12</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_CHECK_RIGHT_TRAILER_TURN_SIGNAL_LAMP_ENABLE</ParameterName>
+        <StartByte>12</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_CHECK_LEFT_TRAILER_TURN_SIGNAL_LAMP_ENABLE</ParameterName>
+        <StartByte>12</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_CHECK_TRAILER_REVERSING_LAMP_ENABLE</ParameterName>
+        <StartByte>12</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_CHECK_TRAILER_BRAKE_LIGHT_ENABLE</ParameterName>
+        <StartByte>12</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_RIGHT_REAR_TURN_INDICATOR_FAILURE_ENABLE</ParameterName>
+        <StartByte>12</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_COMPLETE_TOP_MOTION_TO_OPEN_TRUNK_ENABLE</ParameterName>
+        <StartByte>13</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_HEATED_WASHER_FLUID_SYSTEM_OFF_ENABLE</ParameterName>
+        <StartByte>13</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_HEATED_WASH_FLUID_WASH_WIPES_PENDING_ENABLE</ParameterName>
+        <StartByte>13</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_CHECK_LEFT_REAR_PARKING_LAMP_ENABLE</ParameterName>
+        <StartByte>14</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_REAR_SEATBELT_INFORMATION_INDICATION_ENABLE</ParameterName>
+        <StartByte>14</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_CHECK_RIGHT_REAR_PARKING_LAMP_ENABLE</ParameterName>
+        <StartByte>14</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_REAR_SEATBELT_WARNING_INDICATION_ENABLE</ParameterName>
+        <StartByte>14</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_RIGHT_DAYTIME_RUNNING_LAMP_FAILURE_ENABLE</ParameterName>
+        <StartByte>15</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_LEFT_DAYTIME_RUNNING_LAMP_FAILURE_ENABLE</ParameterName>
+        <StartByte>15</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_BATTERY_TOO_COLD_PLUG_IN_TO_WARM_ENABLE</ParameterName>
+        <StartByte>15</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_REAR_ACCESS_OPEN_ENABLE</ParameterName>
+        <StartByte>16</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_ADAPTIVE_CRUISE_SET_TO_XXX_ENABLE</ParameterName>
+        <StartByte>16</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_GAP_ALERT_SET_TO_X_ENABLE</ParameterName>
+        <StartByte>16</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_FRONT_PARK_ASSIST_ENABLE</ParameterName>
+        <StartByte>16</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_SHIFT_TO_PARK_BEFORE_EXITING_ENABLE</ParameterName>
+        <StartByte>16</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_VIRTUAL_BUMPER_ON_ENABLE</ParameterName>
+        <StartByte>17</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_RAIN_SENSE_ON_ENABLE</ParameterName>
+        <StartByte>17</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_VIRTUAL_BUMPER_OFF_ENABLE</ParameterName>
+        <StartByte>17</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_VIRTUAL_BUMPER_UNAVAILABLE_ENABLE</ParameterName>
+        <StartByte>17</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_SERVICE_VIRTUAL_BUMPER_ENABLE</ParameterName>
+        <StartByte>17</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_AUTOMATIC_COLLISION_PREP_OFF_ENABLE</ParameterName>
+        <StartByte>17</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_AUTOMATIC_COLLISION_PREP_ALERT_ONLY_ENABLE</ParameterName>
+        <StartByte>18</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_LOW_TRACTION_ENABLE</ParameterName>
+        <StartByte>18</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_AUTOMATIC_COLLISSION_PREP_UNAVAILABLE_ENABLE</ParameterName>
+        <StartByte>18</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_SERVICE_REAR_DRIVER_ASSIST_SYSTEM_ENABLE</ParameterName>
+        <StartByte>18</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_AUTOMATIC_SEAT_BELT_TIGHTENING_UNAVAILABLE_ENABLE</ParameterName>
+        <StartByte>18</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_SERVICE_AUTOMATIC_SEAT_BELT_TIGHTENING_SYSTEM_ENABLE</ParameterName>
+        <StartByte>18</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_SERVICE_AUTOMATIC_COLLISION_PREP_ENABLE</ParameterName>
+        <StartByte>19</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_FRONT_CAMERA_BLOCKED_CLEAN_WINDSHIELD_ENABLE</ParameterName>
+        <StartByte>19</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_CRUISE_RADAR_CANNOT_SEE_OWNER_MANUAL_ENABLE</ParameterName>
+        <StartByte>19</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_REAR_RADAR_BLOCKED_CLEAN_REAR_BUMPER_ENABLE</ParameterName>
+        <StartByte>19</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_24GHZ_RADARS_OFF_ENABLE</ParameterName>
+        <StartByte>19</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_SERVICE_FRONT_DRIVE_ASSIST_SYSTEM_ENABLE</ParameterName>
+        <StartByte>19</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_RAIN_SENSE_OFF_ENABLE</ParameterName>
+        <StartByte>20</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_SERVICE_BATTERY_CHARGING_SYSTEM_ENABLE</ParameterName>
+        <StartByte>20</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_MOUNTAIN_MODE_NOT_AVAILABLE_ENABLE</ParameterName>
+        <StartByte>21</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_HOLD_MODE_NOT_AVAILABLE_ENABLE</ParameterName>
+        <StartByte>21</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_FOR_CRUISE_OR_ALERTS_TURN_ON_HUD_ENABLE</ParameterName>
+        <StartByte>22</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_PRESS_RESUME_TWICE_TO_RESUME_CRUISE_FROM_STOP_ENABLE</ParameterName>
+        <StartByte>22</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_ENGINE_OVERSPEED_ENABLE</ParameterName>
+        <StartByte>22</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_CHANGE_TIMING_BELT_ENABLE</ParameterName>
+        <StartByte>24</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(LWE) | (LUW) | (LUZ)">
+            <Product>
+              <RpoCodeRef IDREF="OCLWE" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <RpoCodeRef IDREF="OCLUW" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <RpoCodeRef IDREF="OCLUZ" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_TRAILER_BRAKE_ENABLE</ParameterName>
+        <StartByte>25</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_MANUALLY_CLOSE_RIGHT_SLIDING_DOOR_ENABLE</ParameterName>
+        <StartByte>25</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_SHIFT_DOWN_ENABLE</ParameterName>
+        <StartByte>28</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_SERVICE_VEHICLE_REFUELING_SYSTEM_ENABLE</ParameterName>
+        <StartByte>28</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_FORWARD_COLLISION_ALERT_OFF_ENABLE</ParameterName>
+        <StartByte>28</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_REAR_CROSS_TRAFFIC_ALERT_OFF_ENABLE</ParameterName>
+        <StartByte>29</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_CHARGE_CORD_CONNECTED_ENABLE</ParameterName>
+        <StartByte>29</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_HILL_START_ASSIST_IS_ACTIVE_ENABLE</ParameterName>
+        <StartByte>29</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_PRESS_CLUTCH_TO_START_12VSS_ENABLE</ParameterName>
+        <StartByte>29</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_CHARGE_PORT_DOOR_OPEN_ENABLE</ParameterName>
+        <StartByte>29</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_SERVICE_HIGH_VOLTAGE_CHARGING_SYSTEM_ENABLE</ParameterName>
+        <StartByte>30</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_RECHARGE_BATTERY_IN_REMOTE_KEY_ENABLE</ParameterName>
+        <StartByte>30</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_SERVICE_HEATER_SOON_ENABLE</ParameterName>
+        <StartByte>30</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_ENGINE_MAINTENANCE_MODE_PERCENT_COMPLETE_ENABLE</ParameterName>
+        <StartByte>30</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_ENGINE_NOT_AVAILABLE_ADD_FUEL_ENABLE</ParameterName>
+        <StartByte>30</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_ENGINE_NOT_AVAILABLE_SERVICE_SOON_ENABLE</ParameterName>
+        <StartByte>30</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_USE_TRANSMITTER_POCKET_TO_START_ENABLE</ParameterName>
+        <StartByte>31</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+    </ModificationItem>
+    <ModificationItem IDREF="DID0003">
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_W352_DEF_LEVEL_2_EURO_ENABLE</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_W353_DEF_LEVEL_4_2NA_ENABLE</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_W355_DEF_LEVEL_6_EURO_ENABLE</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_W356_DEF_LEVEL_7_EURO_ENABLE</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_W357_DEF_LEVEL_8_NA_ENABLE</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_W358_DEF_LEVEL_9_NA_ENABLE</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_W359_DEF_LEVEL_11_EURO_ENABLE</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_W360_DEF_LEVEL_12_EURO_ENABLE</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_W361_DEF_LEVEL_13_EURO_ENABLE</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_W362_DEF_LEVEL_14_EURO_ENABLE</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_W363_DEF_QUALITY_1_EURO_ENABLE</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_W364_DEF_QUALITY_2_EURO_ENABLE</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_W365_DEF_QUALITY_3_EURO_ENABLE</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_W366_DEF_QUALITY_4_NA_ENABLE</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_W367_DEF_QUALITY_5_NA_ENABLE</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_W368_DEF_QUALITY_11_EURO_ENABLE</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_W369_DEF_QUALITY_12_EURO_ENABLE</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_W370_DEF_QUALITY_13_EURO_ENABLE</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_W371_DEF_QUALITY_14_EURO_ENABLE</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_W372_DEF_TAMPER_1_NA_ENABLE</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_W373_DEF_TAMPER_2_NA_ENABLE</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_W374_DEF_TAMPER_3_NA_ENABLE</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_W375_DEF_TAMPER_4_NA_ENABLE</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_W376_DEF_TAMPER_5_NA_ENABLE</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_W408_DEF_LEVEL_6_NA_ENABLE</ParameterName>
+        <StartByte>6</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_W409_DEF_LEVEL_7_NA_ENABLE</ParameterName>
+        <StartByte>6</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_W413_DEF_LEVEL_10_NA_ENABLE</ParameterName>
+        <StartByte>6</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_W414_DEF_LEVEL_13_NA_ENABLE</ParameterName>
+        <StartByte>6</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_W415_DEF_LEVEL_14_NA_ENABLE</ParameterName>
+        <StartByte>7</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_W416_DEF_QUALITY_1_NA_ENABLE</ParameterName>
+        <StartByte>7</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_W417_DEF_QUALITY_2_NA_ENABLE</ParameterName>
+        <StartByte>7</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_W418_DEF_QUALITY_3_NA_ENABLE</ParameterName>
+        <StartByte>7</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_W419_DEF_QUALITY_10_NA_ENABLE</ParameterName>
+        <StartByte>7</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_W435_DEF_QUALITY_11_NA_ENABLE</ParameterName>
+        <StartByte>7</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_W436_DEF_TAMPER_10_NA_ENABLE</ParameterName>
+        <StartByte>7</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_W437_DEF_TAMPER_11_NA_ENABLE</ParameterName>
+        <StartByte>7</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_DEF_DIAG_WARNINGS_ENABLE</ParameterName>
+        <StartByte>8</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+    </ModificationItem>
+    <ModificationItem IDREF="DID00a0">
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>DID_A0_P_MEC</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>8</BitLength>
+        <ConfData useConfData="false" />
+      </Parameter>
+    </ModificationItem>
+    <ModificationItem IDREF="DID00a1">
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_ECO_MENU_PRESENT</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(UKE)">
+            <Product>
+              <RpoCodeRef IDREF="OCUKE" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_ECO_AFE_BEST_INECO_MENU_PRESENT</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="False" Value="00" />
+          <Interpretation Text="True" Value="01" />
+        </ServiceSection>
+      </Parameter>
+    </ModificationItem>
+    <ModificationItem IDREF="DID00a2">
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_ENABLE_DTC_9370_FTB_01</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="00" AutoGenExpression="(M:1PL69 &amp; BTV)">
+            <Product>
+              <RpoCodeRef IDREF="OCBTV" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1PL69" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_ENABLE_DTC_C159_FTB_00</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(M:1PA69 &amp; UD7)">
+            <Product>
+              <RpoCodeRef IDREF="OCUD7" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1PA69" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_ENABLE_DTC_C198_FTB_00</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(M:1PA69 &amp; UE1)">
+            <Product>
+              <RpoCodeRef IDREF="OCUE1" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1PA69" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_ENABLE_DTC_C236_FTB_00</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(M:1PA69 &amp; ULS)">
+            <Product>
+              <RpoCodeRef IDREF="OCULS" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1PA69" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_ENABLE_DTC_C254_FTB_00</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(M:1PA69 &amp; ATH)">
+            <Product>
+              <RpoCodeRef IDREF="OCATH" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1PA69" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_ENABLE_DTC_C112_FTB_00</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+    </ModificationItem>
+    <ModificationItem IDREF="DID00a3">
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_AFE_MENU_PRESENT</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_AVS_MENU_PRESENT</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_COOLANT_TEMP_MENU_PRESENT</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_DEF_LEVEL_MENU_PRESENT</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(LUZ)">
+            <Product>
+              <RpoCodeRef IDREF="OCLUZ" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_SPEED_MENU_PRESENT</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_IFE_MENU_PRESENT</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_OLI_MENU_PRESENT</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(M:1PA69 &amp; UJ2)">
+            <Product>
+              <RpoCodeRef IDREF="OCUJ2" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1PA69" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_RANGE_MENU_PRESENT</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_COMPASS_RECALIBRATION_MENU_PRESENT</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_COMPASS_ZONE_SELECTION_MENU_PRESENT</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_TRAILER_BRAKE_MENU_PRESENT</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_TRANSMISSIONFLUID_TEMP_MENU_PRESENT</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_DRIVER_SET_OVERSPEED_MENU_PRESENT</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_FUEL_USED_MENU_PRESENT</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_TSM_MENU_PRESENT</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_BLANK_MENU2_PRESENT</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_DEF_RANGE_MENU_PRESENT</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_FUEL_FILTER_LIFE_MENU_PRESENT</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(LUZ)">
+            <Product>
+              <RpoCodeRef IDREF="OCLUZ" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_OAT_MENU_PRESENT</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_JUMP_START_MENU_PRESENT</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_CLOCK_PRESENT</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_PERFORMANCE_TIMER_MENU_PRESENT</ParameterName>
+        <StartByte>4</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_COOLANTBATTERY_MENU3_PRESENT</ParameterName>
+        <StartByte>4</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_PERFORMANCE_PAGE_PRESENT</ParameterName>
+        <StartByte>4</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_ECO_INDEX_MENU_PRESENT</ParameterName>
+        <StartByte>5</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_COMBO_SPEED_MENU_PRESENT</ParameterName>
+        <StartByte>6</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_COMBO_TRIP1_MENU_PRESENT</ParameterName>
+        <StartByte>6</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_COMBO_TRIP2_MENU_PRESENT</ParameterName>
+        <StartByte>6</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_AFE_STATISTICS_MENU_PRESENT</ParameterName>
+        <StartByte>7</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_COMPASS_DISPLAY_MENU_PRESENT</ParameterName>
+        <StartByte>7</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_CRUISE_SET_TO_MENU_PRESENT</ParameterName>
+        <StartByte>7</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_HUD_ROADSIGN_PAGE_ENABLE</ParameterName>
+        <StartByte>7</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+    </ModificationItem>
+    <ModificationItem IDREF="DID00a4">
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_COMPASS_PRESENT</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(M:1PA69 &amp; UE1)">
+            <Product>
+              <RpoCodeRef IDREF="OCUE1" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1PA69" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_KEY_FOB_PRESENT</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_SPORT_MODE_BACKLIGHTING_OPTION_PRESENT</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_PERSONALIZATION_PRESENT</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_TBT_PRESENT</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(UE1)">
+            <Product>
+              <RpoCodeRef IDREF="OCUE1" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="False" Value="00" />
+          <Interpretation Text="True" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_ONSTAR_COMPASS_PRESENT</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(M:1PA69 &amp; UE1)">
+            <Product>
+              <RpoCodeRef IDREF="OCUE1" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1PA69" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_WASHER_FLUID_SENSOR_PRESENT</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_LOW_COOLANT_SENSOR_PRESENT</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_WOW_RUN_ACTIVATE</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Deactivated" Value="00" />
+          <Interpretation Text="Activated" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_DTD_ENABLED</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_ETA_ENABLED</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_OPTION_LANE_DEPARTURE_PRESENT</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="False" Value="00" />
+          <Interpretation Text="True" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_OPTION_PARK_ASSIST_PRESENT</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(UD7)">
+            <Product>
+              <RpoCodeRef IDREF="OCUD7" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="False" Value="00" />
+          <Interpretation Text="True" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_OPTION_SOD_PRESENT</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(UFT)">
+            <Product>
+              <RpoCodeRef IDREF="OCUFT" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="False" Value="00" />
+          <Interpretation Text="True" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_SPORT_MODE_BACKLIGHTING_ENABLED_DEFAULT</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="02">
+        <ParameterName>P_OPTION_CONTENT_TRANSMISSION_TYPE</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>8</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(M:1PA69 &amp; MH8) | (M:1PA69 &amp; MH9) | (M:1PA69 &amp; MDK)">
+            <Product>
+              <RpoCodeRef IDREF="OCMH8" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1PA69" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <RpoCodeRef IDREF="OCMH9" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1PA69" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <RpoCodeRef IDREF="OCMDK" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1PA69" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Auto" Value="01" />
+          <Interpretation Text="Man" Value="02" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_FUEL_CONSUMER_SHOW_VALUE</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="False" Value="00" />
+          <Interpretation Text="True" Value="01" />
+        </ServiceSection>
+      </Parameter>
+    </ModificationItem>
+    <ModificationItem IDREF="DID00a5">
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_TSM_TYPE</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>2</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Reserved" Value="00" />
+          <Interpretation Text="TSM1" Value="01" />
+          <Interpretation Text="TSM2" Value="02" />
+          <Interpretation Text="Reserved" Value="03" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_NP_ENABLED</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Inactive" Value="00" />
+          <Interpretation Text="Active" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>P_WOW_POWER_MODE_TRIGGER</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="RUN" Value="00" />
+          <Interpretation Text="CRANK" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_JAPANESE_DISPLAY_UNITS_ENABLED</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_SPECIAL_TEXT_1_REQUIRED</ParameterName>
+        <StartByte>4</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(M:1PL69 &amp; UMN)">
+            <Product>
+              <RpoCodeRef IDREF="OCUMN" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1PL69" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="False" Value="00" />
+          <Interpretation Text="True" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_UNITS_IMPERIAL_ENABLED</ParameterName>
+        <StartByte>4</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="False" Value="00" />
+          <Interpretation Text="True" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_TBT_STARTED_POPUP_ENABLED</ParameterName>
+        <StartByte>8</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(UE1)">
+            <Product>
+              <RpoCodeRef IDREF="OCUE1" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="False" Value="00" />
+          <Interpretation Text="True" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_UNITS_CHANGED_POPUP_ENABLED</ParameterName>
+        <StartByte>8</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="False" Value="00" />
+          <Interpretation Text="True" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_PARK_ASSIST_TYPE</ParameterName>
+        <StartByte>9</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Audible only" Value="00" />
+          <Interpretation Text="Audible Visual" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_FUEL_SAVER_INDICATOR_WITH_SHIFT_PATTERN</ParameterName>
+        <StartByte>9</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="False" Value="00" />
+          <Interpretation Text="True" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00000000">
+        <ParameterName>DID_A5_P_SELECTABLE_LANGUAGES</ParameterName>
+        <StartByte>10</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>32</BitLength>
+        <ConfData useConfData="false" />
+      </Parameter>
+    </ModificationItem>
+    <ModificationItem IDREF="DID00a6">
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_DIESEL_PARTICLE_FILTER_INDICATOR_ENABLED</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(LUZ)">
+            <Product>
+              <RpoCodeRef IDREF="OCLUZ" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_CHANGE_OIL_INDICATOR_ENABLED</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_BULB_OUTAGE_INDICATOR_ENABLED</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_CRUISE_ON_INDICATOR_ENABLED</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(M:1PA69 &amp; K34)">
+            <Product>
+              <RpoCodeRef IDREF="OCK34" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1PA69" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_CRUISE_ENGAGED_INDICATOR_ENABLED</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(M:1PA69 &amp; K34)">
+            <Product>
+              <RpoCodeRef IDREF="OCK34" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1PA69" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_RAINSENSE_INDICATOR_ENABLED</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(M:1PA69 &amp; CE1)">
+            <Product>
+              <RpoCodeRef IDREF="OCCE1" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1PA69" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_PARK_ASSIST_INDICATOR_ENABLED</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(M:1PA69 &amp; UD7)">
+            <Product>
+              <RpoCodeRef IDREF="OCUD7" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1PA69" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_COMPETITIVE_MODE_ESC</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_LANE_DEPARTURE_INDICATOR_ENABLED</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_DIESEL_EXHAUST_FLUID_INDICATOR_ENABLED</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(LUZ)">
+            <Product>
+              <RpoCodeRef IDREF="OCLUZ" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_SERVICE_TRANSMISSION_INDICATOR_ENABLED</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_WINTER_MODE_INDICATOR_ENABLED</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_AUTO_HIGH_BEAM_ACTIVE_INDICATOR_ENABLED</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_HILL_DESCENT_INDICATOR_ENABLED</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_WATER_IN_FUEL_INDICATOR_ENABLED</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>0</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_CONTROVENTO_DOOR_INPUT_INDICATOR_ENABLED</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_TAILGATE_AJAR_INDICATOR_ENABLED</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_SPORT_MODE_INDICATOR_ENABLED</ParameterName>
+        <StartByte>3</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_TRACTION_CONTROL_OFF_INDICATOR_ENABLED</ParameterName>
+        <StartByte>4</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(M:1PA69 &amp; FX3)">
+            <Product>
+              <RpoCodeRef IDREF="OCFX3" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1PA69" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_WASHER_FLUID_LOW_INDICATOR_ENABLED</ParameterName>
+        <StartByte>4</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_MPH_INDICATOR_ENABLED</ParameterName>
+        <StartByte>4</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_KMH_INDICATOR_ENABLED</ParameterName>
+        <StartByte>4</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="false" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+    </ModificationItem>
+    <ModificationItem IDREF="DID00a8">
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>P_CURRENT_DISPLAY_UNIT</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>2</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="01" AutoGenExpression="(M:1PA69 &amp; UMN)">
+            <Product>
+              <RpoCodeRef IDREF="OCUMN" hasToBeAvailable="true" />
+              <ModelDesignatorRef IDREF="MD1PA69" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="UNIT_METRIC" Value="00" />
+          <Interpretation Text="UNIT_US" Value="01" />
+          <Interpretation Text="UNIT_IMPERIAL" Value="02" />
+        </ServiceSection>
+      </Parameter>
+    </ModificationItem>
+  </ModificationSection>
+  <WriteSection>
+    <WriteItem IDREF="DID0002" DelayForMS="0" />
+    <WriteItem IDREF="DID0003" DelayForMS="0" />
+    <WriteItem IDREF="DID00a1" DelayForMS="0" />
+    <WriteItem IDREF="DID00a2" DelayForMS="0" />
+    <WriteItem IDREF="DID00a3" DelayForMS="0" />
+    <WriteItem IDREF="DID00a4" DelayForMS="0" />
+    <WriteItem IDREF="DID00a5" DelayForMS="0" />
+    <WriteItem IDREF="DID00a6" DelayForMS="0" />
+    <WriteItem IDREF="DID00a8" DelayForMS="0" />
+    <WriteItem IDREF="DID0090" DelayForMS="0" />
+    <WriteItem IDREF="DID00a7" DelayForMS="0" />
+    <WriteItem IDREF="DID009c" DelayForMS="0" />
+    <WriteItem IDREF="DID009d" DelayForMS="0" />
+    <WriteItem IDREF="DID00a0" DelayForMS="0" DidWriteScope="Service only" />
+  </WriteSection>
+  <RpoList>
+    <RpoCodeItem>
+      <OptionCodeID>OCATH</OptionCodeID>
+      <OptionCode>ATH</OptionCode>
+      <Description>LOCK CONTROL  ENTRY REMOTE ENTRY  EXTENDED RANGE  PASSIVE ENTRY</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCBTV</OptionCodeID>
+      <OptionCode>BTV</OptionCode>
+      <Description>REMOTE START ENGINE</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCCE1</OptionCodeID>
+      <OptionCode>CE1</OptionCode>
+      <Description>WIPER SYSTEM WINDSHIELD  PULSE  MOISTURE SENSITIVE</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCFX3</OptionCodeID>
+      <OptionCode>FX3</OptionCode>
+      <Description>RIDE AND HANDLING AUTOMATIC ELECTRONIC CONTROLLED</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCK34</OptionCodeID>
+      <OptionCode>K34</OptionCode>
+      <Description>CRUISE CONTROL AUTOMATIC  ELECTRONIC</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCLUW</OptionCodeID>
+      <OptionCode>LUW</OptionCode>
+      <Description>ENGINE GAS  4 CYL  1.8L  MFI  103KW  DOHC  E85 MAX</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCLUZ</OptionCodeID>
+      <OptionCode>LUZ</OptionCode>
+      <Description>ENGINE DIESEL  2.0L  CRI  L4  DOHC  VGT</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCLWE</OptionCodeID>
+      <OptionCode>LWE</OptionCode>
+      <Description>ENGINE GAS  4 CYL  1.8L  MFI  DOHC  VVT  103 KW  GME</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCMDK</OptionCodeID>
+      <OptionCode>MDK</OptionCode>
+      <Description>TRANSMISSION AUTO 6 SPD  AISIN-WARNER  A6-AF40  ELECTRONIC  GEN 2</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCMH8</OptionCodeID>
+      <OptionCode>MH8</OptionCode>
+      <Description>TRANSMISSION AUTO 6 SPD  HMD  X23F</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCMH9</OptionCodeID>
+      <OptionCode>MH9</OptionCode>
+      <Description>TRANSMISSION AUTO 6 SPD  HMD  X24F</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCNJ1</OptionCodeID>
+      <OptionCode>NJ1</OptionCode>
+      <Description>STEERING POWER  NON-VARIABLE RATIO  ELECTRIC</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCUD7</OptionCodeID>
+      <OptionCode>UD7</OptionCode>
+      <Description>SENSOR INDICATOR REAR PARKING ASSIST</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCUE1</OptionCodeID>
+      <OptionCode>UE1</OptionCode>
+      <Description>COMMUNICATION SYSTEM VEHICLE  G.P.S. 1</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCUFT</OptionCodeID>
+      <OptionCode>UFT</OptionCode>
+      <Description>SENSOR INDICATOR SIDE OBSTACLE DETECTION</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCUJ2</OptionCodeID>
+      <OptionCode>UJ2</OptionCode>
+      <Description>INDICATOR ENGINE OIL LIFE</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCUKE</OptionCodeID>
+      <OptionCode>UKE</OptionCode>
+      <Description>DISPLAY-ECO DRIVE ASSISTANCE</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCULS</OptionCodeID>
+      <OptionCode>ULS</OptionCode>
+      <Description>LOCK CONTROL STEERING COLUMN</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCUMN</OptionCodeID>
+      <OptionCode>UMN</OptionCode>
+      <Description>SPEEDOMETER INST  MILES &amp; KILO  MILES ODOMETER</Description>
+    </RpoCodeItem>
+  </RpoList>
+  <ModelDesignatorList>
+    <ModelDesignatorItem>
+      <ModelDesignatorID>MD1PA69</ModelDesignatorID>
+      <ModelDesignator>1PA69</ModelDesignator>
+      <Description>CHEVROLET  GCV CHEVROLET  SED 4 DR 4 WDO NOTCHBACK</Description>
+    </ModelDesignatorItem>
+    <ModelDesignatorItem>
+      <ModelDesignatorID>MD1PL69</ModelDesignatorID>
+      <ModelDesignator>1PL69</ModelDesignator>
+      <Description>CHEVROLET  CHEVROLET LTZ (GMNA)  SED 4 DR 4 WDO NOTCHBACK</Description>
+    </ModelDesignatorItem>
+  </ModelDesignatorList>
+  <RevisionLog>
+    <RevisionLogEntry>
+      <RevisionVersion>01.39.00</RevisionVersion>
+      <RevisionDate>2014-03-17</RevisionDate>
+      <RevisionDescription>Part no.94558208AA
+
+DID_A5, P_SPECIAL_TEXT_1_REQUIRED Change defualt value to disable for CANADA  and check the config. data to enable for USA. (CANADA use ISO symbol, USA use text.)
+DID_02, P_SERVICE_STEERING_COLUMN_LOCK_ENABLE change to diable. only enable for ULS option.</RevisionDescription>
+      <RevisionAuthor>Songhyun Kim</RevisionAuthor>
+    </RevisionLogEntry>
+  </RevisionLog>
+</ConfigurationModule>

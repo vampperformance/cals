@@ -1,0 +1,2 @@
+282	Setup SDM Primary Key BCM	1	3
+285	SDM Enable Deployment Loops	1	3

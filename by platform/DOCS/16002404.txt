@@ -1,0 +1,11 @@
+1256	Place the front wheels and steering wheel in the straight ahead postion. Press Next!	2	3
+334	Check Ignition is on and press Next!	2	3
+198	Please, wait...Establishing Vehicle Communication.	2	1
+335	Checking Vehicle speed is 0	2	1001
+822	Checking Brake Not Applied	2	1005
+788	Brake Pressure Sensor Calibration	2	3020
+789	Yaw Rate Sensor Reset	2	3021
+340	Performing Setup new Control Module	2	4
+790	Steering Position Sensor Reset	2	3022
+339	Stopping Communication	2	2
+286	Cycle the ignition switch from "on" to "off" then back to the "on" position	2	6

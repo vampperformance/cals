@@ -1,0 +1,130 @@
+﻿<?xml version="1.0"?>
+<Config Version="1.1">
+	<Text Id="4432">BSCM - Brake System Control Module - Restore</Text>
+	<Decision>
+		<Text Id="1563">Did you replace the ECU?</Text>
+		<Yes Value="PFREXEC"/>
+		<No Value="PFRNOEXEC"/>
+	</Decision>
+	<Action Id="3" Condition="PFREXEC">
+		<Text Id="1277">Please make sure ignition is on, engine is off and then press Next!</Text>
+	</Action>
+	<Action Id="1" Condition="PFREXEC">
+		<Text Id="198">Please, wait...Establishing Vehicle Communication.</Text>
+		<Item Result="0" Value="communication"/>
+	</Action>
+	<!-- Set MEC to zeero. -->
+	<Action Id="4" Condition="communication">
+		<Text Id="198">Please, wait...Establishing Vehicle Communication.</Text>
+	</Action>
+	<Action Id="2010" Condition="PFREXEC">
+		<Text Id="2224">Check if value file from old ECU is available</Text>
+		<Item Result="0" Value="prepared"/>
+		<Item Result="1810" Value="missing"/>
+		<!-- result 1810 corresponds with "File not found" -->
+	</Action>
+	<Action Id="2030" Condition="(communication !missing !VinError)">
+		<Text Id="783">Program learned Values from previous ECU</Text>
+		<Item Result="383" Value="ErrorWrite"/>
+		<!-- result 383 corresponds with "Error Reading Data" -->
+		<Item Result="1810" Value="missing"/>
+		<!-- result 1810 corresponds with "File not found" -->
+		<Item Result="2104" Value="ErrorWrite"/>
+		<!-- result 2104 corresponds with "Incomplete" -->
+	</Action>
+	<Decision Condition="missing">
+		<Text Id="1984">Did you execute the function Prepare control module for removal before you removed the old ECU?</Text>
+		<Yes/>
+		<No Value="exit"/>
+	</Decision>
+	<Info Button="next" Condition="(!exit missing)">
+		<Text Id="1810">File not found</Text>
+	</Info>
+	<Info Condition="missing">
+		<Text Id="1569">Reinstall old ECU</Text>
+		<Text Id="1571">Execute &quot;Prepare Control Module for Removal&quot;</Text>
+		<Text Id="1570">Install new ECU</Text>
+		<Text Id="1987">Please reprogramm the ECU with the newest software</Text>
+		<Text Id="1567">Execute &quot;Configuration and Setup&quot; once again</Text>
+	</Info>
+	<Info Button="next" Condition="PFRNOEXEC">
+		<Text Id="284">Procedure is not required.</Text>
+	</Info>
+	<Info Button="next" Condition="PFREXEC">
+		<Text Id="250">Turn the ignition on</Text>
+		<Text Id="4338">Engine Off or Propulsion System Inactive.</Text>
+		<Text Id="4339">Make sure the vehicle is stationary.</Text>
+		<Text Id="271">Do not press brake pedal during procedure!</Text>
+	</Info>
+	<Info Button="next" Condition="PFREXEC">
+		<Text Id="4436">Park Brake Calibration</Text>
+	</Info>
+	<Action Id="2054"  Condition="PFREXEC">
+		<Text Id="4436">Park Brake Calibration</Text>
+	</Action>
+	<Info Button="next" Condition="PFREXEC">
+		<Text Id="4430">Pedal Travel Sensor Learn</Text>
+	</Info>
+	<Action Id="2051"  Condition="PFREXEC">
+		<Text Id="4430">Pedal Travel Sensor Learn</Text>
+	</Action>
+	<Info Button="next" Condition="PFREXEC">
+		<Text Id="4433">Pressure Sensor Learn</Text>
+	</Info>
+	<Action Id="2050"  Condition="PFREXEC">
+		<Text Id="4433">Pressure Sensor Learn</Text>
+	</Action>
+
+	<Info Button="next" Condition="PFREXEC">
+		<Text Id="4434">Plunger Motor Position Sensor Learn</Text>
+	</Info>
+	<Action Id="2052"  Condition="PFREXEC">
+		<Text Id="4434">Plunger Motor Position Sensor Learn</Text>
+	</Action>
+	<Info Button="next" Condition="PFREXEC">
+		<Text Id="4437">Vehicle Dynamic Sensor Reset</Text>
+	</Info>
+	<Action Id="2020"  Condition="PFREXEC">
+	<Text Id="4437">Vehicle Dynamic Sensor Reset</Text>
+	</Action>
+	<Info Button="next" Condition="PFREXEC">
+		<Text Id="4438">Steering Wheel Angle Sensor Reset</Text>
+	</Info>
+	<Info Button="next" Condition="PFREXEC">
+		<Text Id="250">Turn the ignition on</Text>
+		<Text Id="4338">Engine Off or Propulsion System Inactive.</Text>
+		<Text Id="4339">Make sure the vehicle is stationary.</Text>
+		<Text Id="2076">Align the front wheels straight and center the steering wheel</Text>
+	</Info>
+	<Action Id="2021"  Condition="PFREXEC">
+		<Text Id="4438">Steering Wheel Angle Sensor Reset</Text>
+	</Action>
+	<Info Button="next" Condition="PFREXEC">
+		<Text Id="250">Turn the ignition on</Text>
+		<Text Id="4338">Engine Off or Propulsion System Inactive.</Text>
+		<Text Id="4339">Make sure the vehicle is stationary.</Text>
+		<Text Id="271">Do not press brake pedal during procedure!</Text>
+	</Info>
+	<Decision Condition="PFREXEC">
+		<Text Id="4481">Were any hydraulic lines opened in the servicing of the Brake System Control Module?</Text>
+		<Yes Value="Hydraulic"/>
+		<No Value="NoHydraulic"/>
+	</Decision>
+	<Info Button="next" Condition="Hydraulic">
+		<Text Id="284">Procedure is not required.</Text>
+	</Info>
+	<Info Button="next" Condition="(PFREXEC NoHydraulic)">
+		<Text Id="4435">Plunger Pressure Rise Starting Point Learn</Text>
+	</Info>
+	<Action Id="2053"  Condition="(PFREXEC NoHydraulic)">
+		<Text Id="4435">Plunger Pressure Rise Starting Point Learn</Text>
+	</Action>
+
+	<Action Id="2" Condition="(communication !missing)">
+		<Text Id="339">Stopping Communication</Text>
+		<Item Result="0" Value="PFREXEC"/>
+	</Action>
+
+
+</Config>
+	

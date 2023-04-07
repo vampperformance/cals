@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigurationModule ECU-CONFIG-SCHEMA-VERSION="01.02.02" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Header>
+    <EcuName>APA_Advanced_Parking_Aid</EcuName>
+    <DiagnosticAddress>BB</DiagnosticAddress>
+    <PartNumber>016546FE</PartNumber>
+    <AlphaCode>4141</AlphaCode>
+    <useSecurityAccess>true</useSecurityAccess>
+    <SecurityAlgoTableNo>F0</SecurityAlgoTableNo>
+    <SecurityAlgoNo>C0</SecurityAlgoNo>
+    <Protocol>
+      <ApplicationLayer>GMW3110</ApplicationLayer>
+      <PhysicalLayer>
+        <PhysicalLayerSpec>GMW3089</PhysicalLayerSpec>
+        <Pin PhysicalLayerSignalName="Low Speed Single Wire CAN " PinNumber="1" />
+        <Pin PhysicalLayerSignalName="High Speed Dual Wire CAN_HS" PinNumber="6" />
+        <Pin PhysicalLayerSignalName="High Speed Dual Wire CAN_LS" PinNumber="14" />
+      </PhysicalLayer>
+      <Description>GMLAN</Description>
+    </Protocol>
+    <ConfigurationCompatibilityIdentifier>0001</ConfigurationCompatibilityIdentifier>
+  </Header>
+  <DidList>
+    <DidItem>
+      <ID>DID0090</ID>
+      <DidNo>0090</DidNo>
+      <DidDataIndicator>0090</DidDataIndicator>
+      <Name>DID_90_Vehicle_Identification_Number</Name>
+      <Description>This DID contains the Vehicle Identification Number.  The data content shall be specified by the vehicle manufacturer.  If the VIN has not yet been programmed into the ECU's permanent memory, those locations shall be either '$00' or '$FF'.  All 17 digits must be programmed in order for the ECU to use this DID.  If the ECU does not store all 17 digits, then the ECU shall use an application specific DID to store the VIN digits.                                                            Some ECUs may restrict the ability to write to this DID under certain operating conditions ( e.g. based on security status).  All write restrictions placed on this DID shall be agreed upon by the DRE, GM service, and GM manufacturing representatives.</Description>
+      <DidLength>17</DidLength>
+      <DefaultValue>0000000000000000000000000000000000</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID0097</ID>
+      <DidNo>0097</DidNo>
+      <DidDataIndicator>0000</DidDataIndicator>
+      <Name>DID_97_System_Name_Or_Engine_Type</Name>
+      <Description>This DID contains the System Name Or Engine Type which identifies the electronic system name (e.g. Automatic Transmission with 2.0 L engine: GS820 X20XEV) or engine type (X30XE) installed.  The data shall always be of type ASCII.  The length is variable (depends on length of string) but shall not exceed 20 characters.</Description>
+      <DidLength>4</DidLength>
+      <DefaultValue>20202020</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID0098</ID>
+      <DidNo>0098</DidNo>
+      <DidDataIndicator>0098</DidDataIndicator>
+      <Name>DID_98_Repair_Shop_Code_Or_Tester_Serial_Number</Name>
+      <Description>This DID contains the Repair Shop Code Or Tester Serial Number which identifies the dealerâ€™s code or the testerâ€™s serial number. This ASCII string is programmed into the ECUâ€™s memory via the Utility File during the last programming session (SPS) at the dealer site.</Description>
+      <DidLength>10</DidLength>
+      <DefaultValue>00000000000000000000</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID0099</ID>
+      <DidNo>0099</DidNo>
+      <DidDataIndicator>0099</DidDataIndicator>
+      <Name>DID_99_Programming_Date</Name>
+      <Description>This DID contains the Programming Date of the last programming event (SPS) at the dealer site.  This BCD value is programmed into the ECUâ€™s memory via the Utility File during the last programming session (SPS).                                                            Example: January 22, 2000 would be encoded as $20 $00 $01 $22.</Description>
+      <DidLength>4</DidLength>
+      <DefaultValue>00000000</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID009c</ID>
+      <DidNo>009C</DidNo>
+      <DidDataIndicator>009C</DidDataIndicator>
+      <Name>DID_9C_XML_Data_File_Part_Number</Name>
+      <Description>This DID contains  the XML Data File Part Number, a 4 byte USN representation of the 8 digit GM part number assigned to the released XML data file that is used to configure an ECU.                                        If an Alpha Code is used, then the Alpha Code associated with this part number shall be stored in DID $9D.                                        * See Note 1 at the beginning of this section.</Description>
+      <DidLength>4</DidLength>
+      <DefaultValue>00000000</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID009d</ID>
+      <DidNo>009D</DidNo>
+      <DidDataIndicator>009D</DidDataIndicator>
+      <Name>DID_9D_XML_Data_File_Part_Number_Alpha_Code</Name>
+      <Description>This DID contains  the XML Data File Part Number Alpha Code, a  2 character ASCII representation of the Alpha Code (or Design Level Suffix) for the corresponding XML Data File Part Number.  This DID corresponds with DID $9C.</Description>
+      <DidLength>2</DidLength>
+      <DefaultValue>0000</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+    <DidItem>
+      <ID>DID00a1</ID>
+      <DidNo>00A1</DidNo>
+      <DidDataIndicator>0000</DidDataIndicator>
+      <Name>DID_A1_ECU_Configuration_or_Customization_Data_1</Name>
+      <Description>This DID contains ECU Configuration or Customization Data</Description>
+      <DidLength>3</DidLength>
+      <DefaultValue>000A08</DefaultValue>
+      <verifyIfSecured>false</verifyIfSecured>
+      <isCustomerData>false</isCustomerData>
+    </DidItem>
+  </DidList>
+  <ReadSection>
+  </ReadSection>
+  <ModificationSection>
+    <ModificationItem IDREF="DID0097">
+      <Parameter ParamDefaultValue="20202020">
+        <ParameterName>System_Name_Or_Engine_Type</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>32</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="41504120" AutoGenExpression="(UFQ)">
+            <Product>
+              <RpoCodeRef IDREF="OCUFQ" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="RPA" Value="52504120" />
+          <Interpretation Text="FRPA" Value="46525041" />
+          <Interpretation Text="Default" Value="20202020" />
+          <Interpretation Text="APA2" Value="41504120" />
+        </ServiceSection>
+      </Parameter>
+    </ModificationItem>
+    <ModificationItem IDREF="DID00a1">
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Steering Wheel Location</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Left" Value="00" />
+          <Interpretation Text="Right" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>WheelSize</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>4</StartBit>
+        <BitLength>5</BitLength>
+        <ConfData useConfData="true">
+          <ConfigData Value="00" AutoGenExpression="(QLI) | (RMI) | (R82) | (RBN)">
+            <Product>
+              <RpoCodeRef IDREF="OCQLI" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <RpoCodeRef IDREF="OCRMI" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <RpoCodeRef IDREF="OCR82" hasToBeAvailable="true" />
+            </Product>
+            <Product>
+              <RpoCodeRef IDREF="OCRBN" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+          <ConfigData Value="01" AutoGenExpression="(R74)">
+            <Product>
+              <RpoCodeRef IDREF="OCR74" hasToBeAvailable="true" />
+            </Product>
+          </ConfigData>
+        </ConfData>
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Wheel Size 1" Value="00" />
+          <Interpretation Text="Wheel Size 2" Value="01" />
+          <Interpretation Text="Wheel Size 3" Value="02" />
+          <Interpretation Text="Wheel Size 4" Value="03" />
+          <Interpretation Text="Wheel Size 5" Value="04" />
+          <Interpretation Text="Wheel Size 6" Value="05" />
+          <Interpretation Text="Wheel Size 7" Value="06" />
+          <Interpretation Text="Wheel Size 8" Value="07" />
+          <Interpretation Text="Wheel Size 9" Value="08" />
+          <Interpretation Text="Wheel Size 10" Value="09" />
+          <Interpretation Text="Wheel Size 11" Value="0A" />
+          <Interpretation Text="Wheel Size 12" Value="0B" />
+          <Interpretation Text="Wheel Size 13" Value="0C" />
+          <Interpretation Text="Wheel Size 14" Value="0D" />
+          <Interpretation Text="Wheel Size 15" Value="0E" />
+          <Interpretation Text="Wheel Size 16" Value="0F" />
+          <Interpretation Text="Wheel Size 17" Value="10" />
+          <Interpretation Text="Wheel Size 18" Value="11" />
+          <Interpretation Text="Wheel Size 19" Value="12" />
+          <Interpretation Text="Wheel Size 20" Value="13" />
+          <Interpretation Text="Wheel Size 21" Value="14" />
+          <Interpretation Text="Wheel Size 22" Value="15" />
+          <Interpretation Text="Wheel Size 23" Value="16" />
+          <Interpretation Text="Wheel Size 24" Value="17" />
+          <Interpretation Text="Wheel Size 25" Value="18" />
+          <Interpretation Text="Wheel Size 26" Value="19" />
+          <Interpretation Text="Wheel Size 27" Value="1A" />
+          <Interpretation Text="Wheel Size 28" Value="1B" />
+          <Interpretation Text="Wheel Size 29" Value="1C" />
+          <Interpretation Text="Wheel Size 30" Value="1D" />
+          <Interpretation Text="Wheel Size 31" Value="1E" />
+          <Interpretation Text="Wheel Size 32" Value="1F" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>TowBarOptionOff</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Trailer_Hitch_Compensation</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="False" Value="00" />
+          <Interpretation Text="True" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>SpeedSignalType</ParameterName>
+        <StartByte>0</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Non Driven Wheel Speed Signal" Value="00" />
+          <Interpretation Text="Driven Wheel Speed Signal" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>Transmission_Type</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Manual" Value="00" />
+          <Interpretation Text="Automatic" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Driven_Wheels</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Front" Value="00" />
+          <Interpretation Text="Rear, 4x4, or All Wheel Drive" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>PA_Enable_Disable_Method</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>3</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Always Enabled" Value="00" />
+          <Interpretation Text="Physical Enable/Disable Switch" Value="01" />
+          <Interpretation Text="Enable/Disable via Vehicle Menu" Value="02" />
+          <Interpretation Text="Both Physical Switch and Vehicle Menu" Value="03" />
+          <Interpretation Text="ESS Controller controls the UPA via On/Off feature" Value="04" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Parking Brake Switch Enabled</ParameterName>
+        <StartByte>1</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="False" Value="00" />
+          <Interpretation Text="True" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>APA2_Activation</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>1</StartBit>
+        <BitLength>2</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="APA2 button, function toggle via APA2 button&#xA;long press" Value="00" />
+          <Interpretation Text="APA2 button, function toggle via touch screen" Value="01" />
+          <Interpretation Text="Single button, function toggle via Set/Clear&#xA;button" Value="02" />
+          <Interpretation Text="Single button, function toggle via touch screen" Value="03" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>UPA_Strategy</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>2</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Automatic" Value="00" />
+          <Interpretation Text="Semiautomatic" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="01">
+        <ParameterName>PA_System_Type</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>3</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Rear" Value="00" />
+          <Interpretation Text="Front &amp; Rear" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Bi_Directional_Wheel_Speed_Sensor_Configuration</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>5</StartBit>
+        <BitLength>2</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Vehicle without bi-direction wheel speed sensor" Value="00" />
+          <Interpretation Text="Non Driven Wheels equip with bi-direction wheel speed sensor" Value="01" />
+          <Interpretation Text="Driven Wheels equip with bi-direction wheel speed sensor" Value="02" />
+          <Interpretation Text="Both Non Driven and Driven Wheels equip with bi-direction wheel speed sensor" Value="03" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Memorization_Customization</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>6</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Disable" Value="00" />
+          <Interpretation Text="Enable" Value="01" />
+        </ServiceSection>
+      </Parameter>
+      <Parameter ParamDefaultValue="00">
+        <ParameterName>Gear_Signal_Select</ParameterName>
+        <StartByte>2</StartByte>
+        <StartBit>7</StartBit>
+        <BitLength>1</BitLength>
+        <ConfData useConfData="true" />
+        <ServiceSection IsServiceAccessAllowed="false">
+          <Interpretation Text="Transmission Shift Lever Position" Value="00" />
+          <Interpretation Text="Vehicle Movement State" Value="01" />
+        </ServiceSection>
+      </Parameter>
+    </ModificationItem>
+  </ModificationSection>
+  <WriteSection>
+    <WriteItem IDREF="DID00a1" DelayForMS="0" />
+    <WriteItem IDREF="DID0097" DelayForMS="0" />
+    <WriteItem IDREF="DID0098" DelayForMS="0" />
+    <WriteItem IDREF="DID0099" DelayForMS="0" />
+    <WriteItem IDREF="DID009c" DelayForMS="0" />
+    <WriteItem IDREF="DID009d" DelayForMS="0" />
+    <WriteItem IDREF="DID0090" DelayForMS="0" />
+  </WriteSection>
+  <RpoList>
+    <RpoCodeItem>
+      <OptionCodeID>OCQLI</OptionCodeID>
+      <OptionCode>QLI</OptionCode>
+      <Description>TIRE ALL-245/45R18 SL 96V BW AL3</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCR74</OptionCodeID>
+      <OptionCode>R74</OptionCode>
+      <Description>TIRE ALL-215/55R17 SL 94V BW HW1</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCR82</OptionCodeID>
+      <OptionCode>R82</OptionCode>
+      <Description>TIRE ALL-245/45R18 SL 96W BW HW3</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCRBN</OptionCodeID>
+      <OptionCode>RBN</OptionCode>
+      <Description>TIRE ALL-P225/55R17 SL 95H BW AL2</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCRMI</OptionCodeID>
+      <OptionCode>RMI</OptionCode>
+      <Description>TIRE ALL-245/40R19 SL 94W BW AL3 VAR 1</Description>
+    </RpoCodeItem>
+    <RpoCodeItem>
+      <OptionCodeID>OCUFQ</OptionCodeID>
+      <OptionCode>UFQ</OptionCode>
+      <Description>FRONT, REAR, LATERAL-FRONT  (SEMIAUTOMATIC STEERING ADVANCED PARKING AID)</Description>
+    </RpoCodeItem>
+  </RpoList>
+  <ModelDesignatorList>
+  </ModelDesignatorList>
+  <RevisionLog>
+    <RevisionLogEntry>
+      <RevisionVersion>02.00.00</RevisionVersion>
+      <RevisionDate>2015-05-21</RevisionDate>
+      <RevisionDescription>Update with NPN
+   -  Changed 17" tire RPO PBN from Wheel Size 2 to Wheel Size 1</RevisionDescription>
+      <RevisionAuthor>Tim Arnold</RevisionAuthor>
+    </RevisionLogEntry>
+  </RevisionLog>
+</ConfigurationModule>

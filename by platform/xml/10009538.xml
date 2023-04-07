@@ -1,0 +1,13 @@
+﻿<?xml version="1.0"?>
+<Config Version="1.0">
+	<Action Id="3">
+		<Text Id="334">Check Ignition is on and press Next!</Text>
+	</Action>
+	<Action Id="8046">
+		<Text Id="1111">BCM Odometer Programming</Text>
+		<Item Result="0" Value="success"/>		
+	</Action>
+	<Action Id="3" Apply="always" Condition="success">
+		<Text Id="286">Cycle the ignition switch from &quot;on&quot; to &quot;off&quot; then back to the &quot;on&quot; position.</Text>
+	</Action>
+</Config>

@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<Config Version="1.0">
+    <Decision>
+    	<Text Id="2803">Is this a Keyless Entry vehicle?</Text>
+	<Yes Value="KeylessEntry"/>
+	<No />
+    </Decision>
+    <Decision>
+	<Text Id="2808">Is the vehicle equipped with Daytime Running Lamps?</Text>
+	<Yes Value="DaytimeRunningLamps"/>
+	<No />
+    </Decision>
+    <Decision>
+	<Text Id="2809">Is the vehicle equipped with a Rear Wiper?</Text>
+	<Yes Value="RearWiper"/>
+	<No />
+    </Decision>
+    <Decision>
+	<Text Id="2810">Is this a Canadian vehicle (RPO Z49)?</Text>
+	<Yes Value="Dongle"/>
+	<No />
+    </Decision>
+	<Action Id="3">
+		<Text Id="334">Check Ignition is on and press Next! </Text>
+	</Action>
+	<Action Id="1">
+		<Text Id="198">Please, wait...Establishing Vehicle Communication.</Text>
+	</Action>
+	<Action Id="2017" Condition="(KeylessEntry DaytimeRunningLamps RearWiper Dongle)">
+		<Text Id="2811">You have selected 284B3 3LM3D (KeylessEntry, DTRL, Rear Wipers, Canadian) </Text>
+	</Action>
+	<Action Id="2018" Condition="(KeylessEntry DaytimeRunningLamps !RearWiper Dongle)">
+		<Text Id="2812">You have selected 284B3 3LM3C (KeylessEntry, DTRL, No Rear Wipers, Canadian) </Text>
+	</Action>
+	<Action Id="2019" Condition="(!KeylessEntry DaytimeRunningLamps RearWiper Dongle)">
+		<Text Id="2813">You have selected 284B3 3LM3B (No KeylessEntry, DTRL, Rear Wipers, Canadian) </Text>
+	</Action>
+	<Action Id="2020" Condition="(!KeylessEntry DaytimeRunningLamps !RearWiper Dongle)">
+		<Text Id="2814">You have selected 284B3 3LM3A (No KeylessEntry, DTRL, No Rear Wipers, Canadian) </Text>
+	</Action>	
+	<Action Id="2021" Condition="(KeylessEntry DaytimeRunningLamps RearWiper !Dongle)">
+		<Text Id="2815">You have selected 284B3 3LM1D (KeylessEntry, DTRL, Rear Wipers, Non Canadian) </Text>
+	</Action>	
+	<Action Id="2022" Condition="(KeylessEntry DaytimeRunningLamps !RearWiper !Dongle)">
+		<Text Id="2816">You have selected 284B3 3LM1C (KeylessEntry, DTRL, No Rear Wipers, Non Canadian) </Text>
+	</Action>	
+	<Action Id="2023" Condition="(!KeylessEntry DaytimeRunningLamps RearWiper !Dongle)">
+		<Text Id="2817">You have selected 284B3 3LM1B (No KeylessEntry, DTRL, Rear Wipers, Non Canadian) </Text>
+	</Action>	
+	<Action Id="2024" Condition="(!KeylessEntry DaytimeRunningLamps !RearWiper !Dongle)">
+		<Text Id="2818">You have selected 284B3 3LM1A (No KeylessEntry, DTRL, No Rear Wipers, Non Canadian) </Text>
+	</Action>	
+	<Action Id="2025" Condition="(KeylessEntry !DaytimeRunningLamps RearWiper !Dongle)">
+		<Text Id="2819">You have selected 2840D 3LM0D (KeylessEntry, No DTRL, Rear Wipers, Non Canadian) </Text>
+	</Action>	
+	<Action Id="2026" Condition="(KeylessEntry !DaytimeRunningLamps !RearWiper !Dongle)">
+		<Text Id="2820">You have selected 284B3 3LM0C (KeylessEntry, No DTRL, No Rear Wipers, Non Canadian) </Text>
+	</Action>	
+	<Action Id="2027" Condition="(!KeylessEntry !DaytimeRunningLamps RearWiper !Dongle)">
+		<Text Id="2821">You have selected 284B3 3LM0B (No KeylessEntry, No DTRL, Rear Wipers, Non Canadian) </Text>
+	</Action>	
+	<Action Id="2028" Condition="(!KeylessEntry !DaytimeRunningLamps !RearWiper !Dongle)">
+		<Text Id="2822">You have selected 284B3 3LM0A (No KeylessEntry, No DTRL, No Rear Wipers, Non Canadian) </Text>
+	</Action>	
+	<Info Id="2029" Condition="(!DaytimeRunningLamps Dongle)">
+		<Text Id="2823">This option combination does not exist. </Text>
+	</Info>	
+	<Action Id="2">
+		<Text Id="339">Stopping Communication </Text>
+	</Action>
+</Config>
+
+

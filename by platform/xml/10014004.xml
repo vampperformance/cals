@@ -1,0 +1,25 @@
+﻿<?xml version="1.0"?>
+<Config Version="1.1">
+	<Decision>
+		<Text Id="4344">Was the ECU replaced?</Text>
+		<Yes Value="NewECU"/>
+		<No/>
+	</Decision>
+	<Action Id="3" Condition="(!NewECU)">
+		<Text Id="284">Procedure is not required.</Text>
+	</Action>
+	<Info Condition="(NewECU)">
+		<Text Id="250">Turn the ignition on</Text>
+		<Text Id="3078">Engine Off</Text>
+		<Text Id="4339">Make sure the vehicle is stationary.</Text>
+	</Info>
+	<Action Id="1" Condition="(NewECU)">
+		<Text Id="198">Please, wait...Establishing Vehicle Communication.</Text>
+	</Action>
+	<Action Id="2045" Condition="(NewECU)">
+		<Text Id="402">Engine Oil Life Reset</Text>
+	</Action>
+	<Action Id="2" Condition="(NewECU)">
+		<Text Id="339">Stopping Communication</Text>
+	</Action>
+</Config>

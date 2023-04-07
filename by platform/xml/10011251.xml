@@ -1,0 +1,21 @@
+﻿<?xml version="1.0"?>
+<Config Version="1.0">
+	<Info>
+        <Text Id="3880" Align="left" Spacing="2.5">Please ensure Ignition is in the Accessory position. Test will flash the hazard lamps 2 times to indicate program mode is active.</Text>
+        <Text Id="3881" Align="left" Bullet="circle">Within 10 seconds, press any button on the fob.</Text>
+        <Text Id="3882" Align="left" Bullet="circle">The hazards will flash 2 additional times indicating the fob is learned.</Text>
+        <Text Id="3883" Align="left" Bullet="circle">Remove key from ignition cylinder and ensure fob operation. Press Enter to Continue.</Text>
+    </Info>
+	<Action Id="3">
+		<Text Id="3884">Check Ignition is in the Accessory position and press Next!</Text>
+	</Action>
+	<Action Id="1">
+		<Text Id="198">Please, wait...Establishing Vehicle Communication.</Text>
+	</Action>
+	<Action Id="2022">
+		<Text Id="3886">Keyfob button pressed within 10 seconds.</Text>
+	</Action>
+	<Action Id="2">
+		<Text Id="3883">Remove key from ignition cylinder and ensure fob operation. Press Enter to Continue.</Text>
+	</Action>
+</Config>
